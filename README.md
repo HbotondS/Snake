@@ -4,6 +4,7 @@
 
 ## Goals
 * [ ] Apply maven
+* [ ] Change Swing to JavaFX
 * [ ] Bugfix
 * [ ] Add comments for the better understanding
 * [ ] Append the README
