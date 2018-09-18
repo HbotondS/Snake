@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hegyi.botond.controllers.SettingsViewController">
+    <Label layoutX="136.0" layoutY="31.0" text="Settings" AnchorPane.topAnchor="31.0">
+        <font>
+          <Font size="36.0" />
+        </font>
+    </Label>
+
+    <Label layoutX="90.0" layoutY="120.0" text="Move Up:">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+    <Label layoutX="90.0" layoutY="170" text="Move Down:">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+    <Label layoutX="90.0" layoutY="220" text="Move Right:">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+    <Label layoutX="90.0" layoutY="270" text="Move Left:">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+
+    <TextField fx:id="upText" layoutX="212.0" layoutY="120.0" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+      <font>
+         <Font size="15" />
+      </font>
+    </TextField>
+    <TextField fx:id="downText" layoutX="212.0" layoutY="170" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+      <font>
+         <Font size="15" />
+      </font>
+    </TextField>
+    <TextField fx:id="rightText" layoutX="212.0" layoutY="220" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+      <font>
+         <Font size="15" />
+      </font>
+    </TextField>
+    <TextField fx:id="leftText" layoutX="212.0" layoutY="270" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+      <font>
+         <Font size="15" />
+      </font>
+    </TextField>
+
+    <Button fx:id="backBtn" layoutX="116.0" layoutY="331.0" mnemonicParsing="false" onAction="#back" text="Back" />
+   <Button layoutX="240.0" layoutY="331.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+</AnchorPane>

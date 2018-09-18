@@ -3,8 +3,8 @@
 [![](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
 
 ## Goals
-* [ ] Apply maven
-* [ ] Change Swing to JavaFX
+* [x] Apply maven
+* [ ] Change Swing to JavaFX *(in progress)*
 * [ ] Bugfix
 * [ ] Add comments for the better understanding
 * [ ] Append the README
