@@ -6,5 +6,5 @@
 * [x] Apply maven
 * [ ] Change Swing to JavaFX *(in progress)*
 * [ ] Bugfix
-* [ ] Add comments for the better understanding
+* [ ] Add comments for the better understanding *(in progress)*
 * [ ] Append the README
