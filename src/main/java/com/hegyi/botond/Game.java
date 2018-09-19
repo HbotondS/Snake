@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Game extends Canvas {
-	private final int PIXELSIZE = 25;
+	public static final int PIXELSIZE = 25;
 
 	public Game() {
 		setWidth(1000);
@@ -15,6 +15,10 @@ public class Game extends Canvas {
 		gc.fillRect(0, 0, getWidth(), getHeight());
 
 		paintGrid(gc);
+
+		Food food = new Food(PIXELSIZE, PIXELSIZE);
+		food.setRandomPosition(1000, 700);
+		food.render(gc);
 	}
 
 	private void paintGrid(GraphicsContext gc) {
