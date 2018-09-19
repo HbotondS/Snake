@@ -19,15 +19,15 @@ public class Snake implements Renderable {
 		body.add(new GameObject(tail, PIXELSIZE, PIXELSIZE));
 	}
 
-	public Point2D head() {
+	public Point2D headPosition() {
 		return body.get(0).getPosition();
 	}
 
-	public Point2D getBody(int index) {
-		return body.get(0).getPosition();
+	public Point2D getBodyPosition(int index) {
+		return body.get(index).getPosition();
 	}
 
-	public int getLenght() {
+	public int getLength() {
 		return body.size();
 	}
 
@@ -40,25 +40,25 @@ public class Snake implements Renderable {
 	}
 
 	public void move() {
-		for (int i = getLenght() - 1; i > 0; --i) {
+		for (int i = getLength() - 1; i > 0; --i) {
 			body.set(i, body.get(i-1));
 		}
 
 		switch (direction) {
 			case UP: {
-				head().add(-PIXELSIZE, 0);
+				headPosition().subtract(PIXELSIZE, 0);
 				break;
 			}
 			case DOWN: {
-				head().add(PIXELSIZE, 0);
+				headPosition().add(PIXELSIZE, 0);
 				break;
 			}
 			case LEFT: {
-				head().add(0, -PIXELSIZE);
+				headPosition().subtract(0, PIXELSIZE);
 				break;
 			}
 			case RIGHT: {
-				head().add(0, PIXELSIZE);
+				headPosition().add(0, PIXELSIZE);
 				break;
 			}
 		}
@@ -69,9 +69,8 @@ public class Snake implements Renderable {
 	}
 
 	public boolean collide() {
-		for (int i = 1; i < getLenght(); i++) {
-			if (head().getX() == getBody(i).getX() &&
-				head().getY() == getBody(i).getY()) {
+		for (int i = 1; i < getLength(); i++) {
+			if (headPosition().equals(getBodyPosition(i))) {
 				return true;
 			}
 		}
@@ -80,7 +79,7 @@ public class Snake implements Renderable {
 
 	public void render(GraphicsContext gc) {
 		gc.setFill(Color.LIMEGREEN);
-		for (int i = 0; i < getLenght(); i++) {
+		for (int i = 0; i < getLength(); i++) {
 			body.get(i).render(gc);
 		}
 	}
