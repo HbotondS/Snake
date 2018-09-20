@@ -1,6 +1,6 @@
 package com.hegyi.botond.controllers;
 
-import com.hegyi.botond.Game;
+import com.hegyi.botond.GameScene;
 import com.hegyi.botond.MyLogger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,10 +29,9 @@ public class WelcomeViewController {
 	public void startBtnAction() {
 		MyLogger.INFO("The user clicked the start button.");
 		Pane root = new Pane();
-		root.getChildren().add(new Game());
 
 		parentView = (Stage) startBtn.getScene().getWindow();
-		parentView.setScene(new Scene(root));
+		parentView.setScene(new GameScene(root));
 		parentView.centerOnScreen();
 		parentView.show();
 	}

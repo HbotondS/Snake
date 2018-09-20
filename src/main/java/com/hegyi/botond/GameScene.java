@@ -2,24 +2,33 @@ package com.hegyi.botond;
 
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-public class Game extends Canvas {
+public class GameScene extends Scene {
 	public static final int PIXELSIZE = 25;
 
 	private GraphicsContext gc;
+	private Canvas canvas;
+	private final int WIDTH = 1000;
+	private final int HEIGHT = 700;
 
 	private Food food;
 	private Snake snake;
 
 	private boolean paused = true;
 
-	public Game() {
-		setWidth(1000);
-		setHeight(700);
-		gc = getGraphicsContext2D();
+	public GameScene(Parent root) {
+		super(root);
+
+		canvas = new Canvas(WIDTH, HEIGHT);
+		((Pane) root).getChildren().add(canvas);
+
+		gc = canvas.getGraphicsContext2D();
 
 		food = new Food(PIXELSIZE, PIXELSIZE);
 		snake = new Snake(new Point2D(PIXELSIZE, 0),
@@ -32,9 +41,9 @@ public class Game extends Canvas {
 
 	private void initFirstFrame() {
 		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, getWidth(), getHeight());
+		gc.fillRect(0, 0, WIDTH, HEIGHT);
 
-		food.setRandomPosition(1000, 700);
+		food.setRandomPosition(WIDTH, HEIGHT);
 		food.render(gc);
 
 		snake.render(gc);
@@ -44,11 +53,11 @@ public class Game extends Canvas {
 
 	private void paintGrid(GraphicsContext gc) {
 		gc.setStroke(Color.GRAY);
-		for (int i = 0; i < getWidth(); i += PIXELSIZE) {
-			gc.strokeLine(i, 0, i, getHeight());
+		for (int i = 0; i < WIDTH; i += PIXELSIZE) {
+			gc.strokeLine(i, 0, i, HEIGHT);
 		}
-		for (int i = 0; i < getHeight(); i += PIXELSIZE) {
-			gc.strokeLine(0, i, getWidth(), i);
+		for (int i = 0; i < HEIGHT; i += PIXELSIZE) {
+			gc.strokeLine(0, i, WIDTH, i);
 		}
 	}
 
@@ -78,5 +87,4 @@ public class Game extends Canvas {
 			}
 		}
 	}
-
 }
