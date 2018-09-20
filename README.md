@@ -12,5 +12,5 @@
 * [ ] Append the README
 
 ## Disclaimer
-I don't own [Lunchtime Doubly So Font](src\main\resources\font\lunchds.ttf), 
-this font by codeman38, you can find more fonts like this [here](https://www.1001fonts.com/lunchtime-doubly-so-font.html).
+I don't own [Lunchtime Doubly So Font](src/main/resources/font/lunchds.ttf). <br>
+This font created by codeman38, you can find more fonts like this [here](http://www.zone38.net/).
