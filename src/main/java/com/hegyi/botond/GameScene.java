@@ -29,6 +29,8 @@ public class GameScene extends Scene {
 	private boolean gameStarted = false;
 	private boolean gameOver = false;
 
+	private int score = 0;
+
 	public GameScene(Parent root) {
 		super(root);
 
@@ -119,6 +121,7 @@ public class GameScene extends Scene {
 
 						if (snake.intersect(food)) {
 							food.setRandomPosition(1000, 700);
+							score = (snake.getLength() - 2) * 100;
 						}
 						food.render(gc);
 
@@ -150,15 +153,13 @@ public class GameScene extends Scene {
 	private void renderPauseMsg() {
 		setTextCenter();
 
-		//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
-		// TODO: display the player score after it's implemented
-		gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
+		gc.fillText("Paused!\nYour score:" + score, WIDTH / 2.0, HEIGHT / 2.0);
 	}
 
 	private void renderGameOverMsg() {
 		setTextCenter();
 
-		gc.fillText("Game over!", WIDTH / 2.0, HEIGHT / 2.0);
+		gc.fillText("Game over!\nYour score: " + score, WIDTH / 2.0, HEIGHT / 2.0);
 
 		//((Pane) getRoot()).getChildren().add(new Button("Click me!"));
 		// TODO: add buttons for restart, save & exit
