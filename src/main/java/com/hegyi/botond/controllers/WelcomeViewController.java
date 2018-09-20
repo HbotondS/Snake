@@ -27,7 +27,6 @@ public class WelcomeViewController {
 	}
 
 	public void startBtnAction() {
-		MyLogger.INFO("The user clicked the start button.");
 		Pane root = new Pane();
 
 		parentView = (Stage) startBtn.getScene().getWindow();

@@ -3,12 +3,15 @@ package com.hegyi.botond;
 import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
+import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 public class GameScene extends Scene {
 	public static final int PIXELSIZE = 25;
@@ -66,7 +69,6 @@ public class GameScene extends Scene {
 				}
 				case ESCAPE: {
 					paused = !paused;
-					MyLogger.INFO("The game is paused");
 				}
 			}
 		});
@@ -99,22 +101,34 @@ public class GameScene extends Scene {
 
 		@Override
 		public void handle(long now) {
-			if (!paused && (now - lastUpdate >= 100_000_000)) {
-				lastUpdate = now;
+			// if the game isn't paused it will refresh the screen in every 100 milliseconds
+			if (!paused) {
+				if (now - lastUpdate >= 100_000_000) {
+					lastUpdate = now;
 
-				gc.setFill(Color.BLACK);
-				gc.fillRect(0, 0, getWidth(), getHeight());
+					gc.setFill(Color.BLACK);
+					gc.fillRect(0, 0, getWidth(), getHeight());
 
-				if (snake.intersect(food)) {
-					food.setRandomPosition(1000, 700);
+					if (snake.intersect(food)) {
+						food.setRandomPosition(1000, 700);
+					}
+
+					food.render(gc);
+
+					snake.render(gc);
+
+					paintGrid(gc);
+					snake.move();
 				}
-
-				food.render(gc);
-
-				snake.render(gc);
-
-				paintGrid(gc);
-				snake.move();
+			} else {
+				gc.setFill(Color.WHITE);
+				Font.loadFont(getClass().getClassLoader().getResourceAsStream("font/lunchds.ttf"), 30);
+				gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
+				gc.setTextAlign(TextAlignment.CENTER);
+				gc.setTextBaseline(VPos.CENTER);
+				//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
+				// TODO: display the player score after it's implemented
+				gc.fillText("Paused!", WIDTH/2, HEIGHT/2);
 			}
 		}
 	}
