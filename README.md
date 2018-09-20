@@ -4,9 +4,11 @@
 
 ## Goals
 * [x] Apply maven
-* [ ] Change Swing to JavaFX *(in progress)*
-* [ ] Bugfix
-* [ ] Add comments for the better understanding *(in progress)*
+* [x] Change Swing to JavaFX
+* [x] Bugfix
+* [x] Add comments for the better understanding
+* [ ] Customizable control
+* [ ] CSS styling
 * [ ] Append the README
 
 ## Disclaimer
