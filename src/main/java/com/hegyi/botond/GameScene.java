@@ -24,7 +24,8 @@ public class GameScene extends Scene {
 	private Food food;
 	private Snake snake;
 
-	private boolean paused = true;
+	private boolean paused = false;
+	private boolean gameStarted = false;
 
 	public GameScene(Parent root) {
 		super(root);
@@ -42,8 +43,8 @@ public class GameScene extends Scene {
 
 		initActionHandlers();
 
-		snake.setDirection(Direction.RIGHT);
-		paused = false;
+		Font.loadFont(getClass().getClassLoader().getResourceAsStream("font/lunchds.ttf"), 30);
+		gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
 
 		new myTimer().start();
 	}
@@ -53,18 +54,22 @@ public class GameScene extends Scene {
 			switch (e.getCode()) {
 				case RIGHT: {
 					snake.setDirection(Direction.RIGHT);
+					gameStarted = true;
 					break;
 				}
 				case LEFT: {
 					snake.setDirection(Direction.LEFT);
+					gameStarted = true;
 					break;
 				}
 				case DOWN: {
 					snake.setDirection(Direction.DOWN);
+					gameStarted = true;
 					break;
 				}
 				case UP: {
 					snake.setDirection(Direction.UP);
+					gameStarted = true;
 					break;
 				}
 				case ESCAPE: {
@@ -102,33 +107,36 @@ public class GameScene extends Scene {
 		@Override
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-			if (!paused) {
-				if (now - lastUpdate >= 100_000_000) {
-					lastUpdate = now;
+			if (gameStarted) {
+				if (!paused) {
+					if (now - lastUpdate >= 100_000_000) {
+						lastUpdate = now;
 
-					gc.setFill(Color.BLACK);
-					gc.fillRect(0, 0, getWidth(), getHeight());
+						gc.setFill(Color.BLACK);
+						gc.fillRect(0, 0, getWidth(), getHeight());
 
-					if (snake.intersect(food)) {
-						food.setRandomPosition(1000, 700);
+						if (snake.intersect(food)) {
+							food.setRandomPosition(1000, 700);
+						}
+						if (snake.collide()) {
+							MyLogger.WARN("the snake was collided");
+						}
+
+						food.render(gc);
+
+						snake.move();
+						snake.render(gc);
+
+						paintGrid(gc);
 					}
-
-					food.render(gc);
-
-					snake.render(gc);
-
-					paintGrid(gc);
-					snake.move();
+				} else {
+					gc.setFill(Color.WHITE);
+					gc.setTextAlign(TextAlignment.CENTER);
+					gc.setTextBaseline(VPos.CENTER);
+					//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
+					// TODO: display the player score after it's implemented
+					gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
 				}
-			} else {
-				gc.setFill(Color.WHITE);
-				Font.loadFont(getClass().getClassLoader().getResourceAsStream("font/lunchds.ttf"), 30);
-				gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
-				gc.setTextAlign(TextAlignment.CENTER);
-				gc.setTextBaseline(VPos.CENTER);
-				//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
-				// TODO: display the player score after it's implemented
-				gc.fillText("Paused!", WIDTH/2, HEIGHT/2);
 			}
 		}
 	}

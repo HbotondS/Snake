@@ -80,6 +80,9 @@ public class Snake implements Renderable {
 	public boolean intersect(GameObject other) {
 		for (int i = 0; i < getLength(); i++) {
 			if (other.intersect(new Rectangle2D(body.get(i).getX(), body.get(i).getY(), bodySize, bodySize))) {
+				if (i == 0) {
+					grow();
+				}
 				return true;
 			}
 		}
