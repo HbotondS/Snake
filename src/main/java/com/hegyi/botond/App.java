@@ -12,7 +12,6 @@ public class App extends Application {
 	public static final int HEIGHT = 400;
 
 	public void start(Stage primaryStage) {
-		MyLogger.INFO("The app is running...");
 		Parent root = null;
 		try {
 			root = FXMLLoader.load(getClass()

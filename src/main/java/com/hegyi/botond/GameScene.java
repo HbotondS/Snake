@@ -46,7 +46,8 @@ public class GameScene extends Scene {
 		snake = new Snake(new Point2D(PIXELSIZE, 0),
 				new Point2D(0, 0), PIXELSIZE);
 
-		initFirstFrame();
+		food.setRandomPosition(WIDTH, HEIGHT);
+		renderGameElements();
 
 		initActionHandlers();
 
@@ -66,19 +67,27 @@ public class GameScene extends Scene {
 
 			switch (kc) {
 				case RIGHT: {
-					snake.setDirection(Direction.RIGHT);
+					if (snake.getDirection() != Direction.LEFT) {
+						snake.setDirection(Direction.RIGHT);
+					}
 					break;
 				}
 				case LEFT: {
-					snake.setDirection(Direction.LEFT);
+					if (snake.getDirection() != Direction.RIGHT) {
+						snake.setDirection(Direction.LEFT);
+					}
 					break;
 				}
 				case DOWN: {
-					snake.setDirection(Direction.DOWN);
+					if (snake.getDirection() != Direction.UP) {
+						snake.setDirection(Direction.DOWN);
+					}
 					break;
 				}
 				case UP: {
-					snake.setDirection(Direction.UP);
+					if (snake.getDirection() != Direction.DOWN) {
+						snake.setDirection(Direction.UP);
+					}
 					break;
 				}
 				case ESCAPE: {
@@ -92,18 +101,6 @@ public class GameScene extends Scene {
 				}
 			}
 		});
-	}
-
-	private void initFirstFrame() {
-		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, WIDTH, HEIGHT);
-
-		food.setRandomPosition(WIDTH, HEIGHT);
-		food.render(gc);
-
-		snake.render(gc);
-
-		renderGrid(gc);
 	}
 
 	private void renderGrid(GraphicsContext gc) {
@@ -158,7 +155,7 @@ public class GameScene extends Scene {
 	private void renderGameElements() {
 		// background
 		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, getWidth(), getHeight());
+		gc.fillRect(0, 0, WIDTH, HEIGHT);
 
 		food.render(gc);
 		snake.render(gc);
@@ -190,7 +187,18 @@ public class GameScene extends Scene {
 		Button exitBtn = new Button("Exit");
 		exitBtn.setLayoutX(WIDTH/2.0 + 50);
 		exitBtn.setLayoutY(HEIGHT/2.0 + 50);
+
 		exitBtn.setOnMouseClicked(e -> System.exit(0));
+		restartBtn.setOnMouseClicked(e -> {
+			gameOver = false;
+			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn);
+
+			snake = new Snake(new Point2D(PIXELSIZE, 0),
+					new Point2D(0, 0), PIXELSIZE);
+
+			food.setRandomPosition(WIDTH, HEIGHT);
+			renderGameElements();
+		});
 
 		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn);
 	}
