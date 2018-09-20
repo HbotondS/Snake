@@ -38,10 +38,4 @@ public class App extends Application {
 		primaryStage.centerOnScreen();
 		primaryStage.show();
 	}
-
-	@Override
-	public void stop() throws Exception {
-		super.stop();
-		MyLogger.INFO("The app is stopped...");
-	}
 }

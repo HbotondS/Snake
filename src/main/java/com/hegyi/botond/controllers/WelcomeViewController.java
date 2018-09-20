@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -22,12 +23,11 @@ public class WelcomeViewController {
 	private Stage parentView;
 
 	public void exit() {
-		MyLogger.INFO("The app is stopped...");
 		System.exit(0);
 	}
 
 	public void startBtnAction() {
-		Pane root = new Pane();
+		AnchorPane root = new AnchorPane();
 
 		parentView = (Stage) startBtn.getScene().getWindow();
 		parentView.setScene(new GameScene(root));

@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,10 +28,11 @@ public class GameScene extends Scene {
 	private Snake snake;
 
 	private boolean paused = false;
-	private boolean gameStarted = false;
 	private boolean gameOver = false;
 
 	private int score = 0;
+
+	private myTimer timer;
 
 	public GameScene(Parent root) {
 		super(root);
@@ -50,33 +53,41 @@ public class GameScene extends Scene {
 		Font.loadFont(getClass().getClassLoader().getResourceAsStream("font/lunchds.ttf"), 30);
 		gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
 
-		new myTimer().start();
+		timer = new myTimer();
 	}
 
 	private void initActionHandlers() {
 		this.setOnKeyPressed(e -> {
-			switch (e.getCode()) {
+			KeyCode kc = e.getCode();
+			if ((kc == KeyCode.RIGHT || kc == KeyCode.LEFT || kc == KeyCode.UP || kc == KeyCode.DOWN) && !gameOver) {
+				timer.start();
+				paused = false;
+			}
+
+			switch (kc) {
 				case RIGHT: {
 					snake.setDirection(Direction.RIGHT);
-					gameStarted = true;
 					break;
 				}
 				case LEFT: {
 					snake.setDirection(Direction.LEFT);
-					gameStarted = true;
 					break;
 				}
 				case DOWN: {
 					snake.setDirection(Direction.DOWN);
-					gameStarted = true;
 					break;
 				}
 				case UP: {
 					snake.setDirection(Direction.UP);
-					gameStarted = true;
 					break;
 				}
 				case ESCAPE: {
+					if (paused) {
+						timer.start();
+					} else {
+						timer.stop();
+						renderPauseMsg();
+					}
 					paused = !paused;
 				}
 			}
@@ -111,28 +122,25 @@ public class GameScene extends Scene {
 		@Override
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-			if (gameStarted && !gameOver) {
-				if (!paused) {
-					if (now - lastUpdate >= 100_000_000) {
-						lastUpdate = now;
 
-						if (snake.intersect(food)) {
-							food.setRandomPosition(1000, 700);
-							score = (snake.getLength() - 2) * 100;
-						}
+			if (now - lastUpdate >= 100_000_000) {
+				lastUpdate = now;
 
-						snake.move();
-						checkSnake();
-						renderGameElements();
-						if (snake.collide()) {
-							gameOver = true;
-						}
-					}
-				} else {
-					renderPauseMsg();
+				if (snake.intersect(food)) {
+					food.setRandomPosition(1000, 700);
+					score = (snake.getLength() - 2) * 100;
 				}
-			} else {
+
+				snake.move();
+				checkSnake();
+				renderGameElements();
+				if (snake.collide()) {
+					gameOver = true;
+				}
+
 				if (gameOver) {
+					// stop the timer
+					this.stop();
 					renderGameOverMsg();
 				}
 			}
@@ -166,7 +174,7 @@ public class GameScene extends Scene {
 	private void renderPauseMsg() {
 		setTextCenter();
 
-		gc.fillText("Paused!\nYour score:" + score, WIDTH / 2.0, HEIGHT / 2.0);
+		gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
 	}
 
 	private void renderGameOverMsg() {
@@ -174,7 +182,16 @@ public class GameScene extends Scene {
 
 		gc.fillText("Game over!\nYour score: " + score, WIDTH / 2.0, HEIGHT / 2.0);
 
-		//((Pane) getRoot()).getChildren().add(new Button("Click me!"));
-		// TODO: add buttons for restart, save & exit
+		// TODO: add button for save
+		Button restartBtn = new Button("Restart");
+		restartBtn.setLayoutX(WIDTH/2.0 - 100);
+		restartBtn.setLayoutY(HEIGHT/2.0 + 50);
+
+		Button exitBtn = new Button("Exit");
+		exitBtn.setLayoutX(WIDTH/2.0 + 50);
+		exitBtn.setLayoutY(HEIGHT/2.0 + 50);
+		exitBtn.setOnMouseClicked(e -> System.exit(0));
+
+		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn);
 	}
 }
