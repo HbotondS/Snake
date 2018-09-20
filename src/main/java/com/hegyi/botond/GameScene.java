@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,6 +27,7 @@ public class GameScene extends Scene {
 
 	private boolean paused = false;
 	private boolean gameStarted = false;
+	private boolean gameOver = false;
 
 	public GameScene(Parent root) {
 		super(root);
@@ -88,10 +90,10 @@ public class GameScene extends Scene {
 
 		snake.render(gc);
 
-		paintGrid(gc);
+		renderGrid(gc);
 	}
 
-	private void paintGrid(GraphicsContext gc) {
+	private void renderGrid(GraphicsContext gc) {
 		gc.setStroke(Color.GRAY);
 		for (int i = 0; i < WIDTH; i += PIXELSIZE) {
 			gc.strokeLine(i, 0, i, HEIGHT);
@@ -107,7 +109,7 @@ public class GameScene extends Scene {
 		@Override
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-			if (gameStarted) {
+			if (gameStarted && !gameOver) {
 				if (!paused) {
 					if (now - lastUpdate >= 100_000_000) {
 						lastUpdate = now;
@@ -118,26 +120,47 @@ public class GameScene extends Scene {
 						if (snake.intersect(food)) {
 							food.setRandomPosition(1000, 700);
 						}
-						if (snake.collide()) {
-							MyLogger.WARN("the snake was collided");
-						}
-
 						food.render(gc);
 
 						snake.move();
 						snake.render(gc);
+						if (snake.collide()) {
+							gameOver = true;
+						}
 
-						paintGrid(gc);
+						renderGrid(gc);
 					}
 				} else {
-					gc.setFill(Color.WHITE);
-					gc.setTextAlign(TextAlignment.CENTER);
-					gc.setTextBaseline(VPos.CENTER);
-					//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
-					// TODO: display the player score after it's implemented
-					gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
+					renderPauseMsg();
+				}
+			} else {
+				if (gameOver) {
+					renderGameOverMsg();
 				}
 			}
 		}
+	}
+
+	private void setTextCenter() {
+		gc.setFill(Color.WHITE);
+		gc.setTextAlign(TextAlignment.CENTER);
+		gc.setTextBaseline(VPos.CENTER);
+	}
+
+	private void renderPauseMsg() {
+		setTextCenter();
+
+		//gc.fillText("Paused!\nYour score:", WIDTH/2, HEIGHT/2);
+		// TODO: display the player score after it's implemented
+		gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
+	}
+
+	private void renderGameOverMsg() {
+		setTextCenter();
+
+		gc.fillText("Game over!", WIDTH / 2.0, HEIGHT / 2.0);
+
+		//((Pane) getRoot()).getChildren().add(new Button("Click me!"));
+		// TODO: add buttons for restart, save & exit
 	}
 }
