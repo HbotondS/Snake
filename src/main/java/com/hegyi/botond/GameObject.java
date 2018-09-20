@@ -81,7 +81,7 @@ public class GameObject implements Renderable {
 
 	public void setRandomPosition(int width, int height) {
 		Random random = new Random();
-		setPosition(new Point2D(random.nextInt((width-25) / PIXELSIZE) * PIXELSIZE,
-				random.nextInt((height-25) / PIXELSIZE) * PIXELSIZE));
+		setPosition(new Point2D(random.nextInt((width) / PIXELSIZE) * PIXELSIZE,
+				random.nextInt((height) / PIXELSIZE) * PIXELSIZE));
 	}
 }

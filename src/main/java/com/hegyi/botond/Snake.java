@@ -68,6 +68,15 @@ public class Snake implements Renderable {
 		body.add(new GameObject());
 	}
 
+	public boolean intersect(GameObject other) {
+		for (int i = 0; i < getLength(); i++) {
+			if (body.get(i).intersect(other)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public boolean collide() {
 		for (int i = 1; i < getLength(); i++) {
 			if (headPosition().equals(getBodyPosition(i))) {
