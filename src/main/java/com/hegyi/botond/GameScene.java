@@ -116,22 +116,17 @@ public class GameScene extends Scene {
 					if (now - lastUpdate >= 100_000_000) {
 						lastUpdate = now;
 
-						gc.setFill(Color.BLACK);
-						gc.fillRect(0, 0, getWidth(), getHeight());
-
 						if (snake.intersect(food)) {
 							food.setRandomPosition(1000, 700);
 							score = (snake.getLength() - 2) * 100;
 						}
-						food.render(gc);
 
 						snake.move();
-						snake.render(gc);
+						checkSnake();
+						renderGameElements();
 						if (snake.collide()) {
 							gameOver = true;
 						}
-
-						renderGrid(gc);
 					}
 				} else {
 					renderPauseMsg();
@@ -142,6 +137,24 @@ public class GameScene extends Scene {
 				}
 			}
 		}
+	}
+
+	private void checkSnake() {
+		double posX = snake.getHeadPosition().getX();
+		double posY = snake.getHeadPosition().getY();
+		if (posX >= WIDTH || posX < 0 || posY >= HEIGHT || posY < 0) {
+			gameOver = true;
+		}
+	}
+
+	private void renderGameElements() {
+		// background
+		gc.setFill(Color.BLACK);
+		gc.fillRect(0, 0, getWidth(), getHeight());
+
+		food.render(gc);
+		snake.render(gc);
+		renderGrid(gc);
 	}
 
 	private void setTextCenter() {
