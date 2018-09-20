@@ -108,26 +108,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="18" />
+          <entry key="java" value="23" />
           <entry key="md" value="2" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="23" />
           <entry key="Markdown" value="2" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3282" />
+          <entry key="java" value="4459" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3282" />
+          <entry key="JAVA" value="4459" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -147,11 +147,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="57" column="69" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#306#315#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#591#592#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#1539#1540#0" expanded="true" />
+                <element signature="e#1572#1573#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            <state relative-caret-position="-493">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="69" column="73" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#789#790#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+                <element signature="e#857#858#0" expanded="true" />
+                <element signature="e#888#889#0" expanded="true" />
+                <element signature="e#1501#1502#0" expanded="true" />
+                <element signature="e#1551#1552#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1245">
+              <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -197,12 +248,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Food.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Renderable.java" />
         <option value="$PROJECT_DIR$/src/test/java/SnakeTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/WelcomeViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java" />
       </list>
     </option>
   </component>
@@ -321,14 +372,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537438757607" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537445653559" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -382,7 +433,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SnakeTest.headTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SnakeTest.test_move_down" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <extension name="coverage">
         <pattern>
@@ -392,13 +443,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.hegyi.botond" />
       <option name="MAIN_CLASS_NAME" value="com.hegyi.botond.SnakeTest" />
-      <option name="METHOD_NAME" value="headTest" />
+      <option name="METHOD_NAME" value="test_move_down" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SnakeTest.test_collide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SnakeTest.test_move_left" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <extension name="coverage">
         <pattern>
@@ -408,13 +459,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.hegyi.botond" />
       <option name="MAIN_CLASS_NAME" value="com.hegyi.botond.SnakeTest" />
-      <option name="METHOD_NAME" value="test_collide" />
+      <option name="METHOD_NAME" value="test_move_left" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SnakeTest.test_grow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SnakeTest.test_move_up" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Snake" />
       <extension name="coverage">
         <pattern>
@@ -424,7 +475,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.hegyi.botond" />
       <option name="MAIN_CLASS_NAME" value="com.hegyi.botond.SnakeTest" />
-      <option name="METHOD_NAME" value="test_grow" />
+      <option name="METHOD_NAME" value="test_move_up" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -432,18 +483,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.SnakeTest.headTest" />
+      <item itemvalue="JUnit.SnakeTest.test_move_left" />
+      <item itemvalue="JUnit.SnakeTest.test_move_down" />
+      <item itemvalue="JUnit.SnakeTest.test_move_up" />
       <item itemvalue="JUnit.SnakeTest" />
-      <item itemvalue="JUnit.SnakeTest.test_collide" />
-      <item itemvalue="JUnit.SnakeTest.test_grow" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.SnakeTest.test_grow" />
         <item itemvalue="JUnit.SnakeTest" />
-        <item itemvalue="JUnit.SnakeTest.test_collide" />
-        <item itemvalue="JUnit.SnakeTest.headTest" />
+        <item itemvalue="JUnit.SnakeTest.test_move_up" />
+        <item itemvalue="JUnit.SnakeTest.test_move_down" />
+        <item itemvalue="JUnit.SnakeTest.test_move_left" />
       </list>
     </recent_temporary>
   </component>
@@ -468,44 +519,44 @@
       <workItem from="1537360571883" duration="1215000" />
       <workItem from="1537362032071" duration="10173000" />
       <workItem from="1537383839946" duration="984000" />
-      <workItem from="1537433278973" duration="5351000" />
+      <workItem from="1537433278973" duration="11848000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SnakeTest_test_collide - 2018.09.19 at 18h 35m 25s.xml">
-      <configuration name="SnakeTest.test_collide" configurationId="JUnit" />
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 14h 35m 50s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnakeTest_test_collide - 2018.09.19 at 18h 35m 47s.xml">
-      <configuration name="SnakeTest.test_collide" configurationId="JUnit" />
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 14h 36m 33s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnakeTest_test_collide - 2018.09.19 at 18h 35m 59s.xml">
-      <configuration name="SnakeTest.test_collide" configurationId="JUnit" />
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 14h 55m 53s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnakeTest_test_collide - 2018.09.19 at 18h 36m 47s.xml">
-      <configuration name="SnakeTest.test_collide" configurationId="JUnit" />
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 14h 58m 28s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SnakeTest - 2018.09.19 at 18h 37m 24s.xml">
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 14h 58m 39s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnakeTest_test_move_right - 2018.09.20 at 15h 00m 06s.xml">
+      <configuration name="SnakeTest.test_move_right" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnakeTest_test_move_left - 2018.09.20 at 15h 06m 07s.xml">
+      <configuration name="SnakeTest.test_move_left" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnakeTest_test_move_down - 2018.09.20 at 15h 08m 43s.xml">
+      <configuration name="SnakeTest.test_move_down" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnakeTest_test_move_up - 2018.09.20 at 15h 10m 33s.xml">
+      <configuration name="SnakeTest.test_move_up" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SnakeTest - 2018.09.20 at 15h 10m 45s.xml">
       <configuration name="SnakeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnakeTest_test_grow - 2018.09.19 at 18h 41m 22s.xml">
-      <configuration name="SnakeTest.test_grow" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnakeTest_test_grow - 2018.09.19 at 18h 41m 35s.xml">
-      <configuration name="SnakeTest.test_grow" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnakeTest_test_grow - 2018.09.19 at 18h 42m 05s.xml">
-      <configuration name="SnakeTest.test_grow" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnakeTest_test_grow - 2018.09.20 at 11h 56m 48s.xml">
-      <configuration name="SnakeTest.test_grow" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SnakeTest_test_grow - 2018.09.20 at 11h 57m 15s.xml">
-      <configuration name="SnakeTest.test_grow" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48558000" />
+    <option name="totallyTimeSpent" value="55055000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -518,10 +569,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.2246596" />
-      <window_info id="Structure" order="1" sideWeight="0.5012225" side_tool="true" weight="0.20953101" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49633253" visible="true" weight="0.2246596" />
+      <window_info id="Structure" order="1" sideWeight="0.5036675" side_tool="true" weight="0.2246596" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -529,7 +579,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -537,7 +587,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.42131147" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3295082" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -629,20 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-322">
@@ -674,28 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="83" column="66" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Food.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -710,10 +724,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/geometry/Point2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="69" column="73" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1551#1552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+        <state relative-caret-position="-493">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="57" column="69" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#306#315#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#1539#1540#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

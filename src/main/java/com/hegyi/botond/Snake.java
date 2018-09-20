@@ -2,29 +2,38 @@ package com.hegyi.botond;
 
 import com.sun.javafx.scene.traversal.Direction;
 import javafx.geometry.Point2D;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public class Snake implements Renderable {
-	private ArrayList<GameObject> body = new ArrayList<GameObject>();
+	private ArrayList<Point2D> body = new ArrayList<Point2D>();
 	private int bodySize;
 
 	private Direction direction;
 
 	public Snake(Point2D head, Point2D tail, int bodySize) {
 		this.bodySize = bodySize;
-		body.add(new GameObject(head, bodySize, bodySize));
-		body.add(new GameObject(tail, bodySize, bodySize));
+		body.add(head);
+		body.add(tail);
 	}
 
-	public Point2D headPosition() {
-		return body.get(0).getPosition();
+	public ArrayList<Point2D> getBody() {
+		return body;
+	}
+
+	public Point2D getHeadPosition() {
+		return body.get(0);
+	}
+
+	public void setHeadPosition(Point2D newPos) {
+		body.set(0, newPos);
 	}
 
 	public Point2D getBodyPosition(int index) {
-		return body.get(index).getPosition();
+		return body.get(index);
 	}
 
 	public int getLength() {
@@ -46,31 +55,31 @@ public class Snake implements Renderable {
 
 		switch (direction) {
 			case UP: {
-				headPosition().subtract(bodySize, 0);
+				body.set(0, getHeadPosition().subtract(0, bodySize));
 				break;
 			}
 			case DOWN: {
-				headPosition().add(bodySize, 0);
+				body.set(0, getHeadPosition().add(0, bodySize));
 				break;
 			}
 			case LEFT: {
-				headPosition().subtract(0, bodySize);
+				body.set(0, getHeadPosition().subtract(bodySize, 0));
 				break;
 			}
 			case RIGHT: {
-				headPosition().add(0, bodySize);
+				body.set(0, getHeadPosition().add(bodySize, 0));
 				break;
 			}
 		}
 	}
 
 	public void grow() {
-		body.add(new GameObject());
+		body.add(new Point2D(0, 0));
 	}
 
 	public boolean intersect(GameObject other) {
 		for (int i = 0; i < getLength(); i++) {
-			if (body.get(i).intersect(other)) {
+			if (other.intersect(new Rectangle2D(body.get(i).getX(), body.get(i).getY(), bodySize, bodySize))) {
 				return true;
 			}
 		}
@@ -79,7 +88,7 @@ public class Snake implements Renderable {
 
 	public boolean collide() {
 		for (int i = 1; i < getLength(); i++) {
-			if (headPosition().equals(getBodyPosition(i))) {
+			if (getHeadPosition().equals(getBodyPosition(i))) {
 				return true;
 			}
 		}
@@ -89,7 +98,7 @@ public class Snake implements Renderable {
 	public void render(GraphicsContext gc) {
 		gc.setFill(Color.LIMEGREEN);
 		for (int i = 0; i < getLength(); i++) {
-			body.get(i).render(gc);
+			gc.fillRect(body.get(i).getX(), body.get(i).getY(), bodySize, bodySize);
 		}
 	}
 }

@@ -75,8 +75,8 @@ public class GameObject implements Renderable {
 		return new Rectangle2D(position.getX(), position.getY(), width, height);
 	}
 
-	public boolean intersect(GameObject other) {
-		return other.getBoundary().intersects(this.getBoundary());
+	public boolean intersect(Rectangle2D other) {
+		return other.intersects(this.getBoundary());
 	}
 
 	public void setRandomPosition(int width, int height) {

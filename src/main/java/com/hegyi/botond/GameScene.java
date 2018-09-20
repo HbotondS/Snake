@@ -1,5 +1,6 @@
 package com.hegyi.botond;
 
+import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.Parent;
@@ -36,11 +37,43 @@ public class GameScene extends Scene {
 
 		initFirstFrame();
 
-		this.setOnKeyPressed(e -> {
-			MyLogger.INFO(e.getCode().getName());
-		});
+		initActionHandlers();
+
+		snake.setDirection(Direction.RIGHT);
+		paused = false;
 
 		new myTimer().start();
+	}
+
+	private void initActionHandlers() {
+		this.setOnKeyReleased(e -> {
+			switch (e.getCode()) {
+				case RIGHT: {
+					MyLogger.INFO("The snake is going right");
+					snake.setDirection(Direction.RIGHT);
+					break;
+				}
+				case LEFT: {
+					MyLogger.INFO("The snake is going left");
+					snake.setDirection(Direction.LEFT);
+					break;
+				}
+				case DOWN: {
+					MyLogger.INFO("The snake is going down");
+					snake.setDirection(Direction.DOWN);
+					break;
+				}
+				case UP: {
+					MyLogger.INFO("The snake is going up");
+					snake.setDirection(Direction.UP);
+					break;
+				}
+				case ESCAPE: {
+					paused = !paused;
+					MyLogger.INFO("The game is paused");
+				}
+			}
+		});
 	}
 
 	private void initFirstFrame() {
