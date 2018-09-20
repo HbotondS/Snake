@@ -2,6 +2,7 @@ package com.hegyi.botond;
 
 import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.geometry.VPos;
 import javafx.scene.Parent;
@@ -15,6 +16,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class GameScene extends Scene {
 	public static final int PIXELSIZE = 25;
@@ -43,8 +47,7 @@ public class GameScene extends Scene {
 		gc = canvas.getGraphicsContext2D();
 
 		food = new Food(PIXELSIZE, PIXELSIZE);
-		snake = new Snake(new Point2D(PIXELSIZE, 0),
-				new Point2D(0, 0), PIXELSIZE);
+		initSnake();
 
 		food.setRandomPosition(WIDTH, HEIGHT);
 		renderGameElements();
@@ -55,6 +58,11 @@ public class GameScene extends Scene {
 		gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
 
 		timer = new myTimer();
+	}
+
+	private void initSnake() {
+		snake = new Snake(new Point2D(WIDTH / 2.0, HEIGHT / 2.0),
+				new Point2D(WIDTH / 2.0 - PIXELSIZE, HEIGHT / 2.0), PIXELSIZE);
 	}
 
 	private void initActionHandlers() {
@@ -119,7 +127,6 @@ public class GameScene extends Scene {
 		@Override
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-
 			if (now - lastUpdate >= 100_000_000) {
 				lastUpdate = now;
 
@@ -185,21 +192,39 @@ public class GameScene extends Scene {
 		restartBtn.setLayoutY(HEIGHT/2.0 + 50);
 
 		Button exitBtn = new Button("Exit");
-		exitBtn.setLayoutX(WIDTH/2.0 + 50);
-		exitBtn.setLayoutY(HEIGHT/2.0 + 50);
+		exitBtn.setLayoutX(WIDTH/2.0 - 25);
+		exitBtn.setLayoutY(HEIGHT/2.0 + 100);
+
+		Button backButton = new Button("Back");
+		backButton.setLayoutX(WIDTH/2.0 + 50);
+		backButton.setLayoutY(HEIGHT/2.0 + 50);
 
 		exitBtn.setOnMouseClicked(e -> System.exit(0));
 		restartBtn.setOnMouseClicked(e -> {
 			gameOver = false;
-			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn);
+			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn, backButton);
 
-			snake = new Snake(new Point2D(PIXELSIZE, 0),
-					new Point2D(0, 0), PIXELSIZE);
+			initSnake();
 
 			food.setRandomPosition(WIDTH, HEIGHT);
 			renderGameElements();
 		});
+		backButton.setOnMouseClicked(e -> {
+			Stage stage = (Stage) getWindow();
+			Parent root = null;
+			try {
+				root = FXMLLoader.load(getClass().
+						getClassLoader().
+						getResource("views/WelcomeView.fxml"));
+			} catch (IOException e1) {
+				MyLogger.WARN("views/WelcomeView.fxml file not found");
+				System.exit(0);
+			}
+			stage.setScene(new Scene(root));
+			stage.centerOnScreen();
+			stage.show();
+		});
 
-		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn);
+		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn, backButton);
 	}
 }
