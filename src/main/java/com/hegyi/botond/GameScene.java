@@ -46,25 +46,21 @@ public class GameScene extends Scene {
 	}
 
 	private void initActionHandlers() {
-		this.setOnKeyReleased(e -> {
+		this.setOnKeyPressed(e -> {
 			switch (e.getCode()) {
 				case RIGHT: {
-					MyLogger.INFO("The snake is going right");
 					snake.setDirection(Direction.RIGHT);
 					break;
 				}
 				case LEFT: {
-					MyLogger.INFO("The snake is going left");
 					snake.setDirection(Direction.LEFT);
 					break;
 				}
 				case DOWN: {
-					MyLogger.INFO("The snake is going down");
 					snake.setDirection(Direction.DOWN);
 					break;
 				}
 				case UP: {
-					MyLogger.INFO("The snake is going up");
 					snake.setDirection(Direction.UP);
 					break;
 				}
@@ -99,9 +95,13 @@ public class GameScene extends Scene {
 	}
 
 	private class myTimer extends AnimationTimer {
+		private long lastUpdate = 0;
+
 		@Override
 		public void handle(long now) {
-			if (!paused) {
+			if (!paused && (now - lastUpdate >= 100_000_000)) {
+				lastUpdate = now;
+
 				gc.setFill(Color.BLACK);
 				gc.fillRect(0, 0, getWidth(), getHeight());
 
@@ -115,12 +115,6 @@ public class GameScene extends Scene {
 
 				paintGrid(gc);
 				snake.move();
-
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
 			}
 		}
 	}
