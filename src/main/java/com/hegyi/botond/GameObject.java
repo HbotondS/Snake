@@ -6,7 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 import java.util.Random;
 
-import static com.hegyi.botond.Game.PIXELSIZE;
+import static com.hegyi.botond.GameScene.PIXELSIZE;
 
 public class GameObject implements Renderable {
 	protected Point2D position;

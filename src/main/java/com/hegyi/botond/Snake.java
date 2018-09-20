@@ -7,16 +7,16 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-import static com.hegyi.botond.Game.PIXELSIZE;
-
 public class Snake implements Renderable {
 	private ArrayList<GameObject> body = new ArrayList<GameObject>();
+	private int bodySize;
 
 	private Direction direction;
 
-	public Snake(Point2D head, Point2D tail) {
-		body.add(new GameObject(head, PIXELSIZE, PIXELSIZE));
-		body.add(new GameObject(tail, PIXELSIZE, PIXELSIZE));
+	public Snake(Point2D head, Point2D tail, int bodySize) {
+		this.bodySize = bodySize;
+		body.add(new GameObject(head, bodySize, bodySize));
+		body.add(new GameObject(tail, bodySize, bodySize));
 	}
 
 	public Point2D headPosition() {
@@ -46,19 +46,19 @@ public class Snake implements Renderable {
 
 		switch (direction) {
 			case UP: {
-				headPosition().subtract(PIXELSIZE, 0);
+				headPosition().subtract(bodySize, 0);
 				break;
 			}
 			case DOWN: {
-				headPosition().add(PIXELSIZE, 0);
+				headPosition().add(bodySize, 0);
 				break;
 			}
 			case LEFT: {
-				headPosition().subtract(0, PIXELSIZE);
+				headPosition().subtract(0, bodySize);
 				break;
 			}
 			case RIGHT: {
-				headPosition().add(0, PIXELSIZE);
+				headPosition().add(0, bodySize);
 				break;
 			}
 		}

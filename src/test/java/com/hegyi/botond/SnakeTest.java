@@ -15,7 +15,7 @@ public class SnakeTest {
 	public void init() {
 		head = new Point2D(1, 0);
 		tail = new Point2D(0, 0);
-		snake = new Snake(head, tail);
+		snake = new Snake(head, tail, 25);
 		snake.setDirection(Direction.DOWN);
 	}
 
@@ -48,7 +48,7 @@ public class SnakeTest {
 
 	@Test
 	public void test_collide() {
-		snake = new Snake(new Point2D(0, 0), tail);
+		snake = new Snake(new Point2D(0, 0), tail, 25);
 
 		Assert.assertTrue(snake.collide());
 	}

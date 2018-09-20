@@ -32,9 +32,13 @@ public class GameScene extends Scene {
 
 		food = new Food(PIXELSIZE, PIXELSIZE);
 		snake = new Snake(new Point2D(PIXELSIZE, 0),
-				new Point2D(0, 0));
+				new Point2D(0, 0), PIXELSIZE);
 
 		initFirstFrame();
+
+		this.setOnKeyPressed(e -> {
+			MyLogger.INFO(e.getCode().getName());
+		});
 
 		new myTimer().start();
 	}
