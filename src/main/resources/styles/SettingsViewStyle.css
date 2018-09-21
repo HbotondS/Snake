@@ -1,0 +1,28 @@
+.label {
+    -fx-font-family: "Lunchtime Doubly So Regular";
+    -fx-text-fill: white;
+}
+
+#settingsLabel {
+    -fx-padding: 0px 0px 25px 0px;
+}
+
+#everything {
+    -fx-alignment: center;
+}
+
+#inputsAndLabels {
+    -fx-alignment: center;;
+}
+
+#labels {
+    -fx-spacing: 22px;
+}
+
+#inputs {
+    -fx-spacing: 15px;
+}
+
+#buttons {
+    -fx-alignment: center;
+}

@@ -4,57 +4,79 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hegyi.botond.controllers.SettingsViewController">
-    <Label layoutX="136.0" layoutY="31.0" text="Settings" AnchorPane.topAnchor="31.0">
-        <font>
-          <Font size="36.0" />
-        </font>
-    </Label>
-
-    <Label layoutX="90.0" layoutY="120.0" text="Move Up:">
-        <font>
-            <Font size="20" />
-        </font>
-    </Label>
-    <Label layoutX="90.0" layoutY="170" text="Move Down:">
-        <font>
-            <Font size="20" />
-        </font>
-    </Label>
-    <Label layoutX="90.0" layoutY="220" text="Move Right:">
-        <font>
-            <Font size="20" />
-        </font>
-    </Label>
-    <Label layoutX="90.0" layoutY="270" text="Move Left:">
-        <font>
-            <Font size="20" />
-        </font>
-    </Label>
-
-    <TextField fx:id="upText" layoutX="212.0" layoutY="120.0" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
-      <font>
-         <Font size="15" />
-      </font>
-    </TextField>
-    <TextField fx:id="downText" layoutX="212.0" layoutY="170" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
-      <font>
-         <Font size="15" />
-      </font>
-    </TextField>
-    <TextField fx:id="rightText" layoutX="212.0" layoutY="220" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
-      <font>
-         <Font size="15" />
-      </font>
-    </TextField>
-    <TextField fx:id="leftText" layoutX="212.0" layoutY="270" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
-      <font>
-         <Font size="15" />
-      </font>
-    </TextField>
-
-    <Button fx:id="backBtn" layoutX="116.0" layoutY="331.0" mnemonicParsing="false" onAction="#back" text="Back" />
-   <Button layoutX="240.0" layoutY="331.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+<AnchorPane fx:id="background" prefHeight="400.0" prefWidth="400.0" stylesheets="@../styles/overallStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hegyi.botond.controllers.SettingsViewController">
+   <VBox fx:id="everything" layoutX="-4.0" prefHeight="400.0" prefWidth="400.0" stylesheets="@../styles/SettingsViewStyle.css">
+      <children>
+          <Label fx:id="settingsLabel" text="Settings">
+              <font>
+                <Font size="36.0" />
+              </font>
+          </Label>
+         <HBox fx:id="inputsAndLabels" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <VBox fx:id="labels" prefHeight="124.0" prefWidth="145.0">
+                  <children>
+                  
+                      <Label text="Move Up:">
+                          <font>
+                              <Font size="20" />
+                          </font>
+                      </Label>
+                      <Label text="Move Down:">
+                          <font>
+                              <Font size="20" />
+                          </font>
+                      </Label>
+                      <Label text="Move Right:">
+                          <font>
+                              <Font size="20" />
+                          </font>
+                      </Label>
+                      <Label text="Move Left:">
+                          <font>
+                              <Font size="20" />
+                          </font>
+                      </Label>
+                  </children>
+               </VBox>
+               <VBox fx:id="inputs" prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                  
+                      <TextField fx:id="upText" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+                        <font>
+                           <Font size="15" />
+                        </font>
+                      </TextField>
+                      <TextField fx:id="downText" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+                        <font>
+                           <Font size="15" />
+                        </font>
+                      </TextField>
+                      <TextField fx:id="rightText" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+                        <font>
+                           <Font size="15" />
+                        </font>
+                      </TextField>
+                      <TextField fx:id="leftText" onKeyReleased="#changeText" prefHeight="25" prefWidth="100">
+                        <font>
+                           <Font size="15" />
+                        </font>
+                      </TextField>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
+         <HBox fx:id="buttons" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#reset" text="Reset" />
+            
+                <Button fx:id="backBtn" mnemonicParsing="false" onAction="#back" text="Back" />
+            </children>
+         </HBox>
+      </children>
+   </VBox>
 </AnchorPane>
