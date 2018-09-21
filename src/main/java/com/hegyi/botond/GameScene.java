@@ -78,9 +78,8 @@ public class GameScene extends Scene {
 
 	private void initDialog() {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("Information Dialog");
-		alert.setHeaderText("Instruction");
-		//alert.setContentText("csa");
+		alert.setTitle("Instruction");
+		alert.setHeaderText(null);
 		Pane pane = null;
 		try {
 			pane = FXMLLoader.load(getClass().getClassLoader().getResource("views/InstructionDialog.fxml"));
