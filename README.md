@@ -7,8 +7,8 @@
 * [x] Change Swing to JavaFX
 * [x] Bugfix
 * [x] Add comments for the better understanding
-* [ ] Customizable control
-* [ ] CSS styling
+* [x] Customizable control
+* [ ] CSS styling *(in progress)*
 * [ ] Append the README
 
 ## Disclaimer
