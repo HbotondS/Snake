@@ -1,5 +1,6 @@
 package com.hegyi.botond;
 
+import com.hegyi.botond.controllers.SettingsViewController;
 import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
@@ -9,16 +10,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
+import java.util.prefs.Preferences;
 
 public class GameScene extends Scene {
 	public static final int PIXELSIZE = 25;
@@ -38,8 +44,16 @@ public class GameScene extends Scene {
 
 	private myTimer timer;
 
+	private Preferences prefs;
+
+	private final String UP = "UP";
+	private final String DOWN = "DOWN";
+	private final String RIGHT = "RIGHT";
+	private final String LEFT = "LEFT";
+
 	public GameScene(Parent root) {
 		super(root);
+			prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
 
 		canvas = new Canvas(WIDTH, HEIGHT);
 		((Pane) root).getChildren().add(canvas);
@@ -58,6 +72,24 @@ public class GameScene extends Scene {
 		gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
 
 		timer = new myTimer();
+
+		initDialog();
+	}
+
+	private void initDialog() {
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Information Dialog");
+		alert.setHeaderText("Instruction");
+		//alert.setContentText("csa");
+		Pane pane = null;
+		try {
+			pane = FXMLLoader.load(getClass().getClassLoader().getResource("views/InstructionDialog.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		alert.getDialogPane().setContent(pane);
+
+		alert.showAndWait();
 	}
 
 	private void initSnake() {
@@ -68,44 +100,38 @@ public class GameScene extends Scene {
 	private void initActionHandlers() {
 		this.setOnKeyPressed(e -> {
 			KeyCode kc = e.getCode();
-			if ((kc == KeyCode.RIGHT || kc == KeyCode.LEFT || kc == KeyCode.UP || kc == KeyCode.DOWN) && !gameOver) {
+			if (kc == KeyCode.ESCAPE) {
+				if (paused) {
+					timer.start();
+				} else {
+					timer.stop();
+					renderPauseMsg();
+				}
+				paused = !paused;
+			}
+
+			String key = kc.toString();
+			if ((key.equals(prefs.get(RIGHT, ""))
+					|| key.equals(prefs.get(LEFT, ""))
+					|| key.equals(prefs.get(UP, ""))
+					|| key.equals(prefs.get(DOWN, "")))
+					&& !gameOver) {
 				timer.start();
 				paused = false;
 			}
-
-			switch (kc) {
-				case RIGHT: {
-					if (snake.getDirection() != Direction.LEFT) {
-						snake.setDirection(Direction.RIGHT);
-					}
-					break;
-				}
-				case LEFT: {
-					if (snake.getDirection() != Direction.RIGHT) {
-						snake.setDirection(Direction.LEFT);
-					}
-					break;
-				}
-				case DOWN: {
-					if (snake.getDirection() != Direction.UP) {
+			if (key.equals(prefs.get(RIGHT, "")) && snake.getDirection() != Direction.LEFT) {
+				snake.setDirection(Direction.RIGHT);
+			} else {
+				if (key.equals(prefs.get(LEFT, "")) && snake.getDirection() != Direction.RIGHT) {
+					snake.setDirection(Direction.LEFT);
+				} else {
+					if (key.equals(prefs.get(DOWN, "")) && snake.getDirection() != Direction.UP) {
 						snake.setDirection(Direction.DOWN);
-					}
-					break;
-				}
-				case UP: {
-					if (snake.getDirection() != Direction.DOWN) {
-						snake.setDirection(Direction.UP);
-					}
-					break;
-				}
-				case ESCAPE: {
-					if (paused) {
-						timer.start();
 					} else {
-						timer.stop();
-						renderPauseMsg();
+						if (key.equals(prefs.get(UP, "")) && snake.getDirection() != Direction.DOWN) {
+							snake.setDirection(Direction.UP);
+						}
 					}
-					paused = !paused;
 				}
 			}
 		});
