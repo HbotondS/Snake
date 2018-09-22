@@ -210,28 +210,31 @@ public class GameScene extends Scene {
 
 		// TODO: add button for save
 		Button restartBtn = new Button("Restart");
-		restartBtn.setLayoutX(WIDTH/2.0 - 100);
+		restartBtn.setLayoutX(WIDTH/2.0 - 125);
 		restartBtn.setLayoutY(HEIGHT/2.0 + 50);
+		restartBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
 		Button exitBtn = new Button("Exit");
-		exitBtn.setLayoutX(WIDTH/2.0 - 25);
+		exitBtn.setLayoutX(WIDTH/2.0 - 50);
 		exitBtn.setLayoutY(HEIGHT/2.0 + 100);
+		exitBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
-		Button backButton = new Button("Back");
-		backButton.setLayoutX(WIDTH/2.0 + 50);
-		backButton.setLayoutY(HEIGHT/2.0 + 50);
+		Button backBtn = new Button("Back");
+		backBtn.setLayoutX(WIDTH/2.0 + 30);
+		backBtn.setLayoutY(HEIGHT/2.0 + 50);
+		backBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
 		exitBtn.setOnMouseClicked(e -> System.exit(0));
 		restartBtn.setOnMouseClicked(e -> {
 			gameOver = false;
-			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn, backButton);
+			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn, backBtn);
 
 			initSnake();
 
 			food.setRandomPosition(WIDTH, HEIGHT);
 			renderGameElements();
 		});
-		backButton.setOnMouseClicked(e -> {
+		backBtn.setOnMouseClicked(e -> {
 			Stage stage = (Stage) getWindow();
 			Parent root = null;
 			try {
@@ -247,6 +250,6 @@ public class GameScene extends Scene {
 			stage.show();
 		});
 
-		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn, backButton);
+		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn, backBtn);
 	}
 }
