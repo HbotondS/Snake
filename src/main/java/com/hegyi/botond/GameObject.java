@@ -26,10 +26,22 @@ public class GameObject implements Renderable {
 		alive = true;
 	}
 
+	public GameObject(Point2D position) {
+		this.position = position;
+		alive = true;
+	}
+
 	public GameObject(Point2D position, double width, double height) {
 		this.position = position;
 		this.width = width;
 		this.height = height;
+		alive = true;
+	}
+
+	public GameObject(Point2D position, double bodySize) {
+		this.position = position;
+		this.width = bodySize;
+		this.height = bodySize;
 		alive = true;
 	}
 
@@ -65,6 +77,7 @@ public class GameObject implements Renderable {
 		alive = false;
 	}
 
+	@Override
 	public void render(GraphicsContext gc) {
 		if (alive) {
 			gc.fillRect(position.getX(), position.getY(), width, height);
@@ -75,8 +88,8 @@ public class GameObject implements Renderable {
 		return new Rectangle2D(position.getX(), position.getY(), width, height);
 	}
 
-	public boolean intersect(Rectangle2D other) {
-		return other.intersects(this.getBoundary());
+	public boolean intersect(GameObject other) {
+		return this.getBoundary().intersects(other.getBoundary());
 	}
 
 	public void setRandomPosition(int width, int height) {
