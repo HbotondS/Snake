@@ -22,6 +22,7 @@
     - in the costume mode the player can set the size of the screen
 * [ ] Add two different game mode
     - bordered & non-bordered mode
+* [ ] Log the progress (in working hour and line of code each day)
 
 ## Disclaimer
 I don't own [Lunchtime Doubly So Font](src/main/resources/font/lunchds.ttf). <br>
