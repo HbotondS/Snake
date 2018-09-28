@@ -14,6 +14,22 @@ If you are done with that, you can simply double click the .jar file to play the
 ### Controls
 The default controls are the **arrow keys**, but you can change the controls in the settings menu.
 
+## Screenshots
+### Menu
+<img src="./screenshots/menu.JPG" height="300" />
+
+### Settings
+<img src="./screenshots/settings.JPG" height="300" />
+
+### In game
+<img src="./screenshots/in-game.JPG" height="300" />
+
+### In game *(paused)*
+<img src="./screenshots/paused.JPG" height="300" />
+
+### In game *(game over)*
+<img src="./screenshots/game-over.JPG" height="300" />
+
 ## Disclaimer
 I don't own [Lunchtime Doubly So Font](src/main/resources/font/lunchds.ttf). <br>
 This font created by codeman38, you can find more fonts like this [here](http://www.zone38.net/).
