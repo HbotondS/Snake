@@ -31,6 +31,9 @@ You can pause the game, by pressing the **Esc** button.
 ### In game *(game over)*
 <img src="./screenshots/game-over.JPG" height="300" />
 
+## Video demo
+[![](https://img.youtube.com/vi/-01jZCLWr9Y/0.jpg)](https://www.youtube.com/watch?v=-01jZCLWr9Y)
+
 ## Disclaimer
 I don't own [Lunchtime Doubly So Font](src/main/resources/font/lunchds.ttf). <br>
 This font created by codeman38, you can find more fonts like this [here](http://www.zone38.net/).
