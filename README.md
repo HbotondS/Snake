@@ -12,7 +12,8 @@ This is a two-dimensional game, where a sole player attempts to eat items by run
 
 If you are done with that, you can simply double click the .jar file to play the game, after you downloaded from [here](https://github.com/HbotondS/Snake/releases).
 ### Controls
-The default controls are the **arrow keys**, but you can change the controls in the settings menu.
+The default controls are the **arrow keys**, but you can change them in the settings menu.
+You can pause the game, by pressing the **Esc** button.
 
 ## Screenshots
 ### Menu
