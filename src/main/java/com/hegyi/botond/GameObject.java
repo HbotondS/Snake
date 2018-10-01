@@ -80,7 +80,7 @@ public class GameObject implements Renderable {
 	@Override
 	public void render(GraphicsContext gc) {
 		if (alive) {
-			gc.fillRect(position.getX(), position.getY(), width, height);
+			gc.fillRect(position.getX() + 1, position.getY() + 1, width - 2, height - 2);
 		}
 	}
 

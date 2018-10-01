@@ -7,6 +7,13 @@
     -fx-background-color: black;
 }
 
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-font-family: "Lunchtime Doubly So Regular";
+    -fx-alignment: center;
+}
+
 .button {
     -fx-font-family: "Lunchtime Doubly So Regular";
     -fx-font-size: 30px;

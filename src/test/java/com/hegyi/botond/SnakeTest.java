@@ -21,12 +21,12 @@ public class SnakeTest {
 
 	@Test
 	public void test_headPosition() {
-		Assert.assertEquals(head, snake.getHeadPosition());
+		Assert.assertEquals(head, snake.getHead().getPosition());
 	}
 
 	@Test
 	public void test_getBodyPosition() {
-		Assert.assertEquals(tail, snake.getBodyPosition(1));
+		Assert.assertEquals(tail, snake.getBody(1).getPosition());
 	}
 
 	@Test
@@ -58,8 +58,8 @@ public class SnakeTest {
 		snake.setDirection(Direction.RIGHT);
 		snake.move();
 
-		Assert.assertEquals(new Point2D(2, 0), snake.getHeadPosition());
-		Assert.assertEquals(new Point2D(1, 0), snake.getBodyPosition(1));
+		Assert.assertEquals(new Point2D(2, 0), snake.getHead().getPosition());
+		Assert.assertEquals(new Point2D(1, 0), snake.getBody(1).getPosition());
 	}
 
 	@Test
@@ -67,8 +67,8 @@ public class SnakeTest {
 		snake.setDirection(Direction.LEFT);
 		snake.move();
 
-		Assert.assertEquals(new Point2D(0, 0), snake.getHeadPosition());
-		Assert.assertEquals(new Point2D(1, 0), snake.getBodyPosition(1));
+		Assert.assertEquals(new Point2D(0, 0), snake.getHead().getPosition());
+		Assert.assertEquals(new Point2D(1, 0), snake.getBody(1).getPosition());
 	}
 
 	@Test
@@ -76,8 +76,8 @@ public class SnakeTest {
 		snake.setDirection(Direction.DOWN);
 		snake.move();
 
-		Assert.assertEquals(new Point2D(1, 1), snake.getHeadPosition());
-		Assert.assertEquals(new Point2D(1, 0), snake.getBodyPosition(1));
+		Assert.assertEquals(new Point2D(1, 1), snake.getHead().getPosition());
+		Assert.assertEquals(new Point2D(1, 0), snake.getBody(1).getPosition());
 	}
 
 	@Test
@@ -85,7 +85,21 @@ public class SnakeTest {
 		snake.setDirection(Direction.UP);
 		snake.move();
 
-		Assert.assertEquals(new Point2D(1, -1), snake.getHeadPosition());
-		Assert.assertEquals(new Point2D(1, 0), snake.getBodyPosition(1));
+		Assert.assertEquals(new Point2D(1, -1), snake.getHead().getPosition());
+		Assert.assertEquals(new Point2D(1, 0), snake.getBody(1).getPosition());
+	}
+
+	@Test
+	public void testHeadDirection() {
+		snake.move();
+		Assert.assertEquals(Direction.DOWN, snake.getHead().getDirection());
+	}
+
+	@Test
+	public void testBodyDirection() {
+		snake.setDirection(Direction.UP);
+		snake.move();
+		snake.move();
+		Assert.assertEquals(Direction.UP, snake.getBody(1).getDirection());
 	}
 }

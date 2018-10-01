@@ -5,19 +5,17 @@ import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
-import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,6 +46,10 @@ public class GameScene extends Scene {
 	private final String RIGHT = "RIGHT";
 	private final String LEFT = "LEFT";
 
+	private Label pauseLabel;
+	private Label gameOverLabel;
+	private Label scoreLabel;
+
 	public GameScene(Parent root) {
 		super(root);
 			prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
@@ -58,19 +60,49 @@ public class GameScene extends Scene {
 		gc = canvas.getGraphicsContext2D();
 
 		food = new Food(PIXELSIZE, PIXELSIZE);
+
+		timer = new myTimer();
+		initActionHandlers();
+		initDialog();
+
+		initScreen();
+
+		initLabels();
+	}
+
+	private void initLabels() {
+		pauseLabel = new Label("Paused");
+		pauseLabel.setLayoutX(WIDTH/2f - 25);
+		pauseLabel.setLayoutY(HEIGHT/2f);
+		pauseLabel.getStylesheets().add(getClass().getClassLoader().getResource("styles/overallStyle.css").toString());
+
+		gameOverLabel = new Label("Game Over!");
+		gameOverLabel.setLayoutX(WIDTH/2f - 75);
+		gameOverLabel.setLayoutY(HEIGHT/2f - 40);
+		gameOverLabel.getStylesheets().add(getClass().getClassLoader().getResource("styles/overallStyle.css").toString());
+
+		scoreLabel = new Label();
+		scoreLabel.setLayoutX(WIDTH/2f - 125);
+		scoreLabel.setLayoutY(HEIGHT/2f - 10);
+		scoreLabel.getStylesheets().add(getClass().getClassLoader().getResource("styles/overallStyle.css").toString());
+	}
+
+	private void initScreen() {
+		renderBackground();
+
 		initSnake();
 
 		food.setRandomPosition(WIDTH, HEIGHT);
+
 		renderGameElements();
+		gc.setFill(Color.LIMEGREEN);
+		snake.getTail().render(gc);
+	}
 
-		initActionHandlers();
-
-		Font.loadFont(getClass().getClassLoader().getResourceAsStream("font/lunchds.ttf"), 30);
-		gc.setFont(new Font("Lunchtime Doubly So Regular", 30));
-
-		timer = new myTimer();
-
-		initDialog();
+	private void renderBackground() {
+		gc.setFill(Color.BLACK);
+		gc.fillRect(0, 0, WIDTH, HEIGHT);
+		renderGrid(gc);
 	}
 
 	private void initDialog() {
@@ -89,8 +121,8 @@ public class GameScene extends Scene {
 	}
 
 	private void initSnake() {
-		snake = new Snake(new Point2D(WIDTH / 2.0, HEIGHT / 2.0),
-				new Point2D(WIDTH / 2.0 - PIXELSIZE, HEIGHT / 2.0), PIXELSIZE);
+		snake = new Snake(new Point2D(WIDTH / 2f, HEIGHT / 2f),
+				new Point2D(WIDTH / 2f - PIXELSIZE, HEIGHT / 2f), PIXELSIZE);
 	}
 
 	private void initActionHandlers() {
@@ -99,9 +131,10 @@ public class GameScene extends Scene {
 			if (kc == KeyCode.ESCAPE) {
 				if (paused) {
 					timer.start();
+					((AnchorPane) getRoot()).getChildren().remove(pauseLabel);
 				} else {
 					timer.stop();
-					renderPauseMsg();
+					((AnchorPane) getRoot()).getChildren().add(pauseLabel);
 				}
 				paused = !paused;
 			}
@@ -152,12 +185,18 @@ public class GameScene extends Scene {
 			if (now - lastUpdate >= 100_000_000) {
 				lastUpdate = now;
 
-				if (snake.intersect(food)) {
-					food.setRandomPosition(1000, 700);
-					score = (snake.getLength() - 2) * 100;
+				while (snake.intersect(food)) {
+					food.setRandomPosition(WIDTH, HEIGHT);
 				}
 
-				snake.move();
+
+				moveSnake();
+				if (snake.getHead().intersect(food)) {
+					food.setRandomPosition(WIDTH, HEIGHT);
+					score = (snake.getLength() - 2) * 100;
+					snake.grow();
+				}
+
 				checkSnake();
 				renderGameElements();
 				if (snake.collide()) {
@@ -173,66 +212,54 @@ public class GameScene extends Scene {
 		}
 	}
 
+	private void moveSnake() {
+		MovingGameObject mgo = snake.getTail();
+		snake.move();
+
+		// erase the old tail
+		gc.setFill(Color.BLACK);
+		mgo.render(gc);
+	}
+
 	private void checkSnake() {
-		double posX = snake.getHeadPosition().getX();
-		double posY = snake.getHeadPosition().getY();
+		double posX = snake.getHead().getPosition().getX();
+		double posY = snake.getHead().getPosition().getY();
 		if (posX >= WIDTH || posX < 0 || posY >= HEIGHT || posY < 0) {
 			gameOver = true;
 		}
 	}
 
 	private void renderGameElements() {
-		// background
-		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, WIDTH, HEIGHT);
-
 		food.render(gc);
 		snake.render(gc);
-		renderGrid(gc);
-	}
-
-	private void setTextCenter() {
-		gc.setFill(Color.WHITE);
-		gc.setTextAlign(TextAlignment.CENTER);
-		gc.setTextBaseline(VPos.CENTER);
-	}
-
-	private void renderPauseMsg() {
-		setTextCenter();
-
-		gc.fillText("Paused!", WIDTH / 2.0, HEIGHT / 2.0);
 	}
 
 	private void renderGameOverMsg() {
-		setTextCenter();
-
-		gc.fillText("Game over!\nYour score: " + score, WIDTH / 2.0, HEIGHT / 2.0);
+		scoreLabel.setText("Your score: " + score);
 
 		// TODO: add button for save
 		Button restartBtn = new Button("Restart");
-		restartBtn.setLayoutX(WIDTH/2.0 - 125);
-		restartBtn.setLayoutY(HEIGHT/2.0 + 50);
+		restartBtn.setLayoutX(WIDTH/2f - 125);
+		restartBtn.setLayoutY(HEIGHT/2f + 50);
 		restartBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
 		Button exitBtn = new Button("Exit");
-		exitBtn.setLayoutX(WIDTH/2.0 - 50);
-		exitBtn.setLayoutY(HEIGHT/2.0 + 100);
+		exitBtn.setLayoutX(WIDTH/2f - 50);
+		exitBtn.setLayoutY(HEIGHT/2f + 100);
 		exitBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
 		Button backBtn = new Button("Back");
-		backBtn.setLayoutX(WIDTH/2.0 + 30);
-		backBtn.setLayoutY(HEIGHT/2.0 + 50);
+		backBtn.setLayoutX(WIDTH/2f + 30);
+		backBtn.setLayoutY(HEIGHT/2f + 50);
 		backBtn.getStylesheets().add(getClass().getClassLoader().getResource("styles/GameOverStyle.css").toString());
 
 		exitBtn.setOnMouseClicked(e -> System.exit(0));
 		restartBtn.setOnMouseClicked(e -> {
 			gameOver = false;
-			((AnchorPane) getRoot()).getChildren().removeAll(restartBtn, exitBtn, backBtn);
-
-			initSnake();
+			((AnchorPane) getRoot()).getChildren().removeAll(gameOverLabel, scoreLabel, restartBtn, exitBtn, backBtn);
 
 			food.setRandomPosition(WIDTH, HEIGHT);
-			renderGameElements();
+			initScreen();
 		});
 		backBtn.setOnMouseClicked(e -> {
 			Stage stage = (Stage) getWindow();
@@ -250,6 +277,6 @@ public class GameScene extends Scene {
 			stage.show();
 		});
 
-		((AnchorPane) getRoot()).getChildren().addAll(restartBtn, exitBtn, backBtn);
+		((AnchorPane) getRoot()).getChildren().addAll(gameOverLabel, scoreLabel, restartBtn, exitBtn, backBtn);
 	}
 }
