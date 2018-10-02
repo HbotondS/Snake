@@ -36,6 +36,7 @@ public class GameScene extends Scene {
 	private boolean gameOver = false;
 
 	private int score = 0;
+	private int foodPoint = 100;
 
 	private myTimer timer;
 
@@ -95,8 +96,6 @@ public class GameScene extends Scene {
 		food.setRandomPosition(WIDTH, HEIGHT);
 
 		renderGameElements();
-		gc.setFill(Color.LIMEGREEN);
-		snake.getTail().render(gc);
 	}
 
 	private void renderBackground() {
@@ -185,21 +184,17 @@ public class GameScene extends Scene {
 			if (now - lastUpdate >= 100_000_000) {
 				lastUpdate = now;
 
-				while (snake.intersect(food)) {
-					food.setRandomPosition(WIDTH, HEIGHT);
-				}
-
-
-				moveSnake();
+				snake.move();
 				if (snake.getHead().intersect(food)) {
-					food.setRandomPosition(WIDTH, HEIGHT);
-					score = (snake.getLength() - 2) * 100;
+					do {
+						food.setRandomPosition(WIDTH, HEIGHT);
+					} while (snake.intersect(food));
+					score += foodPoint;
 					snake.grow();
 				}
 
-				checkSnake();
 				renderGameElements();
-				if (snake.collide()) {
+				if (snake.collide() || checkSnake()) {
 					gameOver = true;
 				}
 
@@ -212,24 +207,14 @@ public class GameScene extends Scene {
 		}
 	}
 
-	private void moveSnake() {
-		MovingGameObject mgo = snake.getTail();
-		snake.move();
-
-		// erase the old tail
-		gc.setFill(Color.BLACK);
-		mgo.render(gc);
-	}
-
-	private void checkSnake() {
+	private boolean checkSnake() {
 		double posX = snake.getHead().getPosition().getX();
 		double posY = snake.getHead().getPosition().getY();
-		if (posX >= WIDTH || posX < 0 || posY >= HEIGHT || posY < 0) {
-			gameOver = true;
-		}
+		return posX >= WIDTH || posX < 0 || posY >= HEIGHT || posY < 0;
 	}
 
 	private void renderGameElements() {
+		snake.render(gc);
 		food.render(gc);
 		snake.render(gc);
 	}
