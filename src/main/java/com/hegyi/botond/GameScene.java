@@ -3,6 +3,7 @@ package com.hegyi.botond;
 import com.hegyi.botond.controllers.SettingsViewController;
 import com.sun.javafx.scene.traversal.Direction;
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.Parent;
@@ -13,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -54,7 +56,7 @@ public class GameScene extends Scene {
 
 	public GameScene(Parent root) {
 		super(root);
-			prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
+		prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
 
 		canvas = new Canvas(WIDTH, HEIGHT);
 		((Pane) root).getChildren().add(canvas);
@@ -126,44 +128,7 @@ public class GameScene extends Scene {
 	}
 
 	private void initActionHandlers() {
-		this.setOnKeyPressed(e -> {
-			KeyCode kc = e.getCode();
-			if (kc == KeyCode.ESCAPE && inGame) {
-				if (paused) {
-					timer.start();
-					((AnchorPane) getRoot()).getChildren().remove(pauseLabel);
-				} else {
-					timer.stop();
-					((AnchorPane) getRoot()).getChildren().add(pauseLabel);
-				}
-				paused = !paused;
-			}
-
-			String key = kc.toString();
-			if ((key.equals(prefs.get(RIGHT, ""))
-					|| key.equals(prefs.get(LEFT, ""))
-					|| key.equals(prefs.get(UP, ""))
-					|| key.equals(prefs.get(DOWN, "")))
-					&& !gameOver) {
-				timer.start();
-				paused = false;
-			}
-			if (key.equals(prefs.get(RIGHT, "")) && snake.getDirection() != Direction.LEFT) {
-				snake.setDirection(Direction.RIGHT);
-			} else {
-				if (key.equals(prefs.get(LEFT, "")) && snake.getDirection() != Direction.RIGHT) {
-					snake.setDirection(Direction.LEFT);
-				} else {
-					if (key.equals(prefs.get(DOWN, "")) && snake.getDirection() != Direction.UP) {
-						snake.setDirection(Direction.DOWN);
-					} else {
-						if (key.equals(prefs.get(UP, "")) && snake.getDirection() != Direction.DOWN) {
-							snake.setDirection(Direction.UP);
-						}
-					}
-				}
-			}
-		});
+		addEventHandler(KeyEvent.KEY_PRESSED, new myHandler());
 	}
 
 	private void renderGrid(GraphicsContext gc) {
@@ -173,44 +138,6 @@ public class GameScene extends Scene {
 		}
 		for (int i = 0; i < HEIGHT; i += PIXELSIZE) {
 			gc.strokeLine(0, i, WIDTH, i);
-		}
-	}
-
-	private class myTimer extends AnimationTimer {
-		private long lastUpdate = 0;
-
-		@Override
-		public void start() {
-			super.start();
-			inGame = true;
-		}
-
-		@Override
-		public void handle(long now) {
-			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-			if (now - lastUpdate >= 100_000_000) {
-				lastUpdate = now;
-
-				snake.move();
-				if (snake.getHead().intersect(food)) {
-					do {
-						food.setRandomPosition(WIDTH, HEIGHT);
-					} while (snake.intersect(food));
-					score += foodPoint;
-					snake.grow();
-				}
-
-				renderGameElements();
-				if (snake.collide() || checkSnake()) {
-					gameOver = true;
-				}
-
-				if (gameOver) {
-					// stop the timer
-					this.stop();
-					renderGameOverMsg();
-				}
-			}
 		}
 	}
 
@@ -270,5 +197,85 @@ public class GameScene extends Scene {
 		});
 
 		((AnchorPane) getRoot()).getChildren().addAll(gameOverLabel, scoreLabel, restartBtn, exitBtn, backBtn);
+	}
+
+	private class myTimer extends AnimationTimer {
+		private long lastUpdate = 0;
+
+		@Override
+		public void start() {
+			super.start();
+			inGame = true;
+		}
+
+		@Override
+		public void handle(long now) {
+			// if the game isn't paused it will refresh the screen in every 100 milliseconds
+			if (now - lastUpdate >= 100_000_000) {
+				lastUpdate = now;
+
+				snake.move();
+				if (snake.getHead().intersect(food)) {
+					do {
+						food.setRandomPosition(WIDTH, HEIGHT);
+					} while (snake.intersect(food));
+					score += foodPoint;
+					snake.grow();
+				}
+
+				renderGameElements();
+				if (snake.collide() || checkSnake()) {
+					gameOver = true;
+				}
+
+				if (gameOver) {
+					// stop the timer
+					this.stop();
+					renderGameOverMsg();
+				}
+			}
+		}
+	}
+
+	private class myHandler implements EventHandler<KeyEvent> {
+		@Override
+		public void handle(KeyEvent event) {
+			KeyCode kc = event.getCode();
+			if (kc == KeyCode.ESCAPE && inGame) {
+				if (paused) {
+					timer.start();
+					((AnchorPane) getRoot()).getChildren().remove(pauseLabel);
+				} else {
+					timer.stop();
+					((AnchorPane) getRoot()).getChildren().add(pauseLabel);
+				}
+				paused = !paused;
+			}
+
+			String key = kc.toString();
+			if ((key.equals(prefs.get(RIGHT, ""))
+					|| key.equals(prefs.get(LEFT, ""))
+					|| key.equals(prefs.get(UP, ""))
+					|| key.equals(prefs.get(DOWN, "")))
+					&& !gameOver) {
+				timer.start();
+				paused = false;
+			}
+			if (key.equals(prefs.get(RIGHT, "")) && snake.getDirection() != Direction.LEFT) {
+				snake.setDirection(Direction.RIGHT);
+			} else {
+				if (key.equals(prefs.get(LEFT, "")) && snake.getDirection() != Direction.RIGHT) {
+					snake.setDirection(Direction.LEFT);
+				} else {
+					if (key.equals(prefs.get(DOWN, "")) && snake.getDirection() != Direction.UP) {
+						snake.setDirection(Direction.DOWN);
+					} else {
+						if (key.equals(prefs.get(UP, "")) && snake.getDirection() != Direction.DOWN) {
+							snake.setDirection(Direction.UP);
+						}
+					}
+				}
+			}
+		}
 	}
 }
