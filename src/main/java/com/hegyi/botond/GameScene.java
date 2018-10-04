@@ -55,6 +55,9 @@ public class GameScene extends Scene {
 	private Label gameOverLabel;
 	private Label scoreLabel;
 
+	private MyHandlerForArrows myHandlerForArrows = new MyHandlerForArrows();
+	private MyHandlerForEsc myHandlerForEsc = new MyHandlerForEsc();
+
 	public GameScene(Parent root, long time) {
 		this(root);
 		this.time = time;
@@ -74,7 +77,8 @@ public class GameScene extends Scene {
 		timer = new myTimer();
 
 		// check user inputs on the first screen
-		initActionHandlers();
+		addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForArrows);
+		addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForEsc);
 		//initDialog();
 
 		initScreen();
@@ -145,10 +149,6 @@ public class GameScene extends Scene {
 	private void initSnake() {
 		snake = new Snake(new Point2D(WIDTH / 2f, HEIGHT / 2f),
 				new Point2D(WIDTH / 2f - PIXELSIZE, HEIGHT / 2f), PIXELSIZE);
-	}
-
-	private void initActionHandlers() {
-		addEventHandler(KeyEvent.KEY_PRESSED, new myHandler());
 	}
 
 	private void renderGrid(GraphicsContext gc) {
@@ -232,6 +232,7 @@ public class GameScene extends Scene {
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
 			if (now - lastUpdate >= time) {
+				addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForArrows);
 				lastUpdate = now;
 
 				snake.move();
@@ -257,7 +258,7 @@ public class GameScene extends Scene {
 		}
 	}
 
-	private class myHandler implements EventHandler<KeyEvent> {
+	private class MyHandlerForEsc implements EventHandler<KeyEvent> {
 		@Override
 		public void handle(KeyEvent event) {
 			KeyCode kc = event.getCode();
@@ -271,6 +272,13 @@ public class GameScene extends Scene {
 				}
 				paused = !paused;
 			}
+		}
+	}
+
+	private class MyHandlerForArrows implements EventHandler<KeyEvent> {
+		@Override
+		public void handle(KeyEvent event) {
+			KeyCode kc = event.getCode();
 
 			String key = kc.toString();
 			if ((key.equals(prefs.get(RIGHT, ""))
@@ -296,6 +304,8 @@ public class GameScene extends Scene {
 					}
 				}
 			}
+
+			removeEventHandler(KeyEvent.KEY_PRESSED, this);
 		}
 	}
 }

@@ -31,12 +31,12 @@ public class GameSceneTest extends ApplicationTest {
 
 	@Test
 	public void testSnakeCollide() {
-		gameScene.setTime(200_000_000);
+		gameScene.setTime(100_000_000);
 		press(KeyCode.RIGHT);
 		gameScene.getSnake().grow();
 		sleep(100);
 		press(KeyCode.DOWN).press(KeyCode.LEFT);
 		sleep(1, TimeUnit.SECONDS);
-		Assert.assertTrue(gameScene.isGameOver());
+		Assert.assertFalse(gameScene.isGameOver());
 	}
 }
