@@ -21,6 +21,8 @@ public class WelcomeViewController {
 	private Parent root;
 	private Stage parentView;
 
+	private long difficulty = 100_000_000;
+
 	public void exit() {
 		System.exit(0);
 	}
@@ -29,7 +31,7 @@ public class WelcomeViewController {
 		AnchorPane root = new AnchorPane();
 
 		parentView = (Stage) startBtn.getScene().getWindow();
-		parentView.setScene(new GameScene(root));
+		parentView.setScene(new GameScene(root, difficulty));
 		parentView.centerOnScreen();
 		parentView.show();
 	}

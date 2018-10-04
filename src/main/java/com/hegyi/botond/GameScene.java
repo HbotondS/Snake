@@ -42,6 +42,7 @@ public class GameScene extends Scene {
 	private int foodPoint = 100;
 
 	private myTimer timer;
+	private long time;
 
 	private Preferences prefs;
 
@@ -53,6 +54,11 @@ public class GameScene extends Scene {
 	private Label pauseLabel;
 	private Label gameOverLabel;
 	private Label scoreLabel;
+
+	public GameScene(Parent root, long time) {
+		this(root);
+		this.time = time;
+	}
 
 	public GameScene(Parent root) {
 		super(root);
@@ -68,12 +74,24 @@ public class GameScene extends Scene {
 		timer = new myTimer();
 
 		// check user inputs on the first screen
-		addEventHandler(KeyEvent.KEY_PRESSED, new myHandler());
-		initDialog();
+		initActionHandlers();
+		//initDialog();
 
 		initScreen();
 
 		initLabels();
+	}
+
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+	public Snake getSnake() {
+		return snake;
 	}
 
 	private void initLabels() {
@@ -213,7 +231,7 @@ public class GameScene extends Scene {
 		@Override
 		public void handle(long now) {
 			// if the game isn't paused it will refresh the screen in every 100 milliseconds
-			if (now - lastUpdate >= 100_000_000) {
+			if (now - lastUpdate >= time) {
 				lastUpdate = now;
 
 				snake.move();
