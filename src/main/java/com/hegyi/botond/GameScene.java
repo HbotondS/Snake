@@ -56,7 +56,7 @@ public class GameScene extends Scene {
 
 	public GameScene(Parent root) {
 		super(root);
-			prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
+		prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
 
 		canvas = new Canvas(WIDTH, HEIGHT);
 		((Pane) root).getChildren().add(canvas);
@@ -127,6 +127,10 @@ public class GameScene extends Scene {
 	private void initSnake() {
 		snake = new Snake(new Point2D(WIDTH / 2f, HEIGHT / 2f),
 				new Point2D(WIDTH / 2f - PIXELSIZE, HEIGHT / 2f), PIXELSIZE);
+	}
+
+	private void initActionHandlers() {
+		addEventHandler(KeyEvent.KEY_PRESSED, new myHandler());
 	}
 
 	private void renderGrid(GraphicsContext gc) {
@@ -212,9 +216,6 @@ public class GameScene extends Scene {
 			if (now - lastUpdate >= 100_000_000) {
 				lastUpdate = now;
 
-				// check user input in every frame
-				addEventHandler(KeyEvent.KEY_PRESSED, new myHandler());
-
 				snake.move();
 				if (snake.getHead().intersect(food)) {
 					do {
@@ -277,8 +278,6 @@ public class GameScene extends Scene {
 					}
 				}
 			}
-			// remove the handler after the usage
-			removeEventHandler(KeyEvent.KEY_PRESSED, this);
 		}
 	}
 }
