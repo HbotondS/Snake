@@ -10,7 +10,7 @@
 
     <groupId>com.hegyi.botond</groupId>
     <artifactId>Snake</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
