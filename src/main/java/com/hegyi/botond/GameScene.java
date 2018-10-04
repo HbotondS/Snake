@@ -32,6 +32,7 @@ public class GameScene extends Scene {
 	private Food food;
 	private Snake snake;
 
+	private boolean inGame = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 
@@ -127,7 +128,7 @@ public class GameScene extends Scene {
 	private void initActionHandlers() {
 		this.setOnKeyPressed(e -> {
 			KeyCode kc = e.getCode();
-			if (kc == KeyCode.ESCAPE) {
+			if (kc == KeyCode.ESCAPE && inGame) {
 				if (paused) {
 					timer.start();
 					((AnchorPane) getRoot()).getChildren().remove(pauseLabel);
@@ -177,6 +178,12 @@ public class GameScene extends Scene {
 
 	private class myTimer extends AnimationTimer {
 		private long lastUpdate = 0;
+
+		@Override
+		public void start() {
+			super.start();
+			inGame = true;
+		}
 
 		@Override
 		public void handle(long now) {
