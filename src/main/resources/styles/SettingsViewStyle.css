@@ -1,5 +1,6 @@
 .label {
     -fx-font-family: "Lunchtime Doubly So Regular";
+    -fx-font-size: 20px;
     -fx-text-fill: white;
 }
 
@@ -14,9 +15,11 @@
 
 .text-field:focused {
     -fx-text-fill: red;
+    -fx-font-size: 15px;
 }
 
 #settingsLabel {
+    -fx-font-size: 36px;
     -fx-padding: 0px 0px 25px 0px;
 }
 
@@ -29,7 +32,7 @@
 }
 
 #labels {
-    -fx-spacing: 22px;
+    -fx-spacing: 20px;
 }
 
 #inputs {
