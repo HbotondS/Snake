@@ -466,7 +466,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GameSceneTest.testSnakeCollide">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hegyi.botond.App" />
       <module name="Snake" />
@@ -551,8 +551,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameSceneTest.testSnakeCollide" />
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.GameSceneTest.testSnakeCollide" />
         <item itemvalue="JUnit.SnakeTest.testBodyDirection" />
         <item itemvalue="JUnit.SnakeTest.testHeadDirection" />
         <item itemvalue="JUnit.SnakeTest" />
