@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -18,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -54,6 +54,7 @@ public class GameScene extends Scene {
 	private Label pauseLabel;
 	private Label gameOverLabel;
 	private Label scoreLabel;
+	private Label inGameScoreLabel;
 
 	private MyHandlerForArrows myHandlerForArrows = new MyHandlerForArrows();
 	private MyHandlerForEsc myHandlerForEsc = new MyHandlerForEsc();
@@ -79,11 +80,10 @@ public class GameScene extends Scene {
 		// check user inputs on the first screen
 		addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForArrows);
 		addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForEsc);
-		//initDialog();
-
-		initScreen();
 
 		initLabels();
+
+		initScreen();
 	}
 
 	public boolean isGameOver() {
@@ -113,9 +113,23 @@ public class GameScene extends Scene {
 		scoreLabel.setLayoutX(WIDTH/2f - 125);
 		scoreLabel.setLayoutY(HEIGHT/2f - 10);
 		scoreLabel.getStylesheets().add(getClass().getClassLoader().getResource("styles/overallStyle.css").toString());
+
+		if (prefs.getBoolean("renderScore", true)) {
+			inGameScoreLabel = new Label();
+			inGameScoreLabel.setId("inGameScoreLabel");
+			inGameScoreLabel.setLayoutX(0);
+			inGameScoreLabel.setLayoutY(0);
+			inGameScoreLabel.getStylesheets().add(getClass().getClassLoader().getResource("styles/overallStyle.css").toString());
+			((AnchorPane) getRoot()).getChildren().add(inGameScoreLabel);
+		}
 	}
 
 	private void initScreen() {
+		score = 0;
+		if (prefs.getBoolean("renderScore", true)) {
+			inGameScoreLabel.setText("Score: " + score + "pt.");
+		}
+
 		renderBackground();
 
 		initSnake();
@@ -129,21 +143,6 @@ public class GameScene extends Scene {
 		gc.setFill(Color.BLACK);
 		gc.fillRect(0, 0, WIDTH, HEIGHT);
 		renderGrid(gc);
-	}
-
-	private void initDialog() {
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("Instruction");
-		alert.setHeaderText(null);
-		Pane pane = null;
-		try {
-			pane = FXMLLoader.load(getClass().getClassLoader().getResource("views/InstructionDialog.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		alert.getDialogPane().setContent(pane);
-
-		alert.showAndWait();
 	}
 
 	private void initSnake() {
@@ -198,6 +197,7 @@ public class GameScene extends Scene {
 			((AnchorPane) getRoot()).getChildren().removeAll(gameOverLabel, scoreLabel, restartBtn, exitBtn, backBtn);
 
 			food.setRandomPosition(WIDTH, HEIGHT);
+			addEventHandler(KeyEvent.KEY_PRESSED, myHandlerForArrows);
 			initScreen();
 		});
 		backBtn.setOnMouseClicked(e -> {
@@ -242,6 +242,10 @@ public class GameScene extends Scene {
 					} while (snake.intersect(food));
 					score += foodPoint;
 					snake.grow();
+
+					if (prefs.getBoolean("renderScore", true)) {
+						inGameScoreLabel.setText("Score: " + score + "pt.");
+					}
 				}
 
 				renderGameElements();

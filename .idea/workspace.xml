@@ -97,8 +97,9 @@
     <session id="566168004">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.111" value="1" />
           <entry key="project.open.time.115" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.35" value="2" />
@@ -110,47 +111,48 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.67" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.80" value="1" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="LICENSE" value="1" />
-          <entry key="css" value="16" />
-          <entry key="fxml" value="22" />
-          <entry key="java" value="73" />
+          <entry key="css" value="19" />
+          <entry key="fxml" value="26" />
+          <entry key="java" value="84" />
           <entry key="md" value="9" />
           <entry key="png" value="2" />
           <entry key="ttf" value="2" />
-          <entry key="xml" value="7" />
+          <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="16" />
+          <entry key="CSS" value="19" />
           <entry key="Font" value="2" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="73" />
+          <entry key="JAVA" value="84" />
           <entry key="Markdown" value="9" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="29" />
+          <entry key="XML" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1097" />
-          <entry key="fxml" value="285" />
-          <entry key="java" value="11042" />
+          <entry key="css" value="1325" />
+          <entry key="fxml" value="382" />
+          <entry key="java" value="11936" />
           <entry key="md" value="721" />
-          <entry key="xml" value="24" />
+          <entry key="xml" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1097" />
-          <entry key="JAVA" value="11042" />
+          <entry key="CSS" value="1325" />
+          <entry key="JAVA" value="11936" />
           <entry key="Markdown" value="721" />
-          <entry key="XML" value="309" />
+          <entry key="XML" value="433" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -164,86 +166,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="255" column="17" selection-start-line="255" selection-start-column="17" selection-end-line="255" selection-end-column="17" />
+            <state relative-caret-position="-166">
+              <caret line="253" column="17" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/GameSceneTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/SettingsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="409">
+              <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#789#790#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
+                <element signature="e#1281#1282#0" expanded="true" />
+                <element signature="e#1300#1301#0" expanded="true" />
+                <element signature="e#1387#1388#0" expanded="true" />
+                <element signature="e#1425#1426#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Assets.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/MovingGameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            <state relative-caret-position="350">
+              <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Food.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -264,12 +219,18 @@
     <findStrings>
       <find>getW</find>
       <find>getHeight</find>
-      <find>rest</find>
       <find>paused</find>
       <find>2.0</find>
       <find>backg</find>
       <find>food.re</find>
       <find>esc</find>
+      <find>rest</find>
+      <find>removeE</find>
+      <find>onKe</find>
+      <find>button</find>
+      <find>restart</find>
+      <find>inGameScoreLabel.setTex</find>
+      <find>getInt</find>
     </findStrings>
     <replaceStrings>
       <replace>2f</replace>
@@ -294,17 +255,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/GoBack.java" />
         <option value="$PROJECT_DIR$/src/test/java/SnakeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Game.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/SettingsViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/WelcomeViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/InstructionDialogController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/buttonStyle.css" />
         <option value="$PROJECT_DIR$/src/main/resources/views/ScoreView.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/ScoreViewStyle.css" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/WelcomeViewStyle.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/WelcomeView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/SettingsView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/styles/SettingsViewStyle.css" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/GameOverStyle.css" />
         <option value="$PROJECT_DIR$/src/main/resources/views/InstructionDialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/InstructionDialogStyle.css" />
@@ -313,15 +269,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/MovingGameObject.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/hegyi/botond/SnakeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/styles/overallStyle.css" />
         <option value="$PROJECT_DIR$/src/main/resources/views/test.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Assests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Assets.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/Food.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/hegyi/botond/GameSceneTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/WelcomeView.fxml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/styles/SettingsViewStyle.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/SettingsView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/styles/overallStyle.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/SettingsViewController.java" />
       </list>
     </option>
   </component>
@@ -372,6 +333,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -420,23 +382,38 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Snake-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Snake-java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Snake-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Snake-java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538665262328" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540477616983" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/views/InstructionDialog.fxml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -590,6 +567,8 @@
       <workItem from="1538492300722" duration="5652000" />
       <workItem from="1538641810929" duration="754000" />
       <workItem from="1538661163703" duration="2283000" />
+      <workItem from="1539868231218" duration="1180000" />
+      <workItem from="1540468820808" duration="7852000" />
     </task>
     <servers />
   </component>
@@ -626,7 +605,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121948000" />
+    <option name="totallyTimeSpent" value="132599000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -639,8 +618,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49508196" visible="true" weight="0.24659607" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49508196" visible="true" weight="0.2579425" />
       <window_info id="Structure" order="1" sideWeight="0.50491804" side_tool="true" weight="0.23524962" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -656,7 +636,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.42131147" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.42131147" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3295082" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -720,14 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/WelcomeView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/styles/WelcomeViewStyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -753,38 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/SettingsViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/WelcomeViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/SettingsView.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/styles/SettingsViewStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -840,14 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/InstructionDialog.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Renderable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -857,44 +789,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/MyLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="136">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/test.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/ScoreView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/styles/overallStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/images/head.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/InstructionDialog.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/ScoreView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -936,36 +858,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/GameSceneTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/WelcomeView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="6" column="147" selection-start-line="6" selection-start-column="147" selection-end-line="6" selection-end-column="147" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hegyi/botond/GameSceneTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="255" column="17" selection-start-line="255" selection-start-column="17" selection-end-line="255" selection-end-column="17" />
+        <state relative-caret-position="327">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/SettingsView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/styles/SettingsViewStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_192/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="4090" column="40" selection-start-line="4090" selection-start-column="40" selection-end-line="4090" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/styles/overallStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/WelcomeViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
+        <state relative-caret-position="350">
+          <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/GameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166">
+          <caret line="253" column="17" selection-start-line="253" selection-start-column="17" selection-end-line="253" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hegyi/botond/controllers/SettingsViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+          <folding>
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
+            <element signature="e#1425#1426#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -989,6 +1011,19 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Snake</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -1003,6 +1038,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: junit:junit:4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

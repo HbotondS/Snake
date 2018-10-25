@@ -24,3 +24,7 @@
 .button:hover {
     -fx-text-fill: red;
 }
+
+#inGameScoreLabel {
+    -fx-font-size: 15px;
+}

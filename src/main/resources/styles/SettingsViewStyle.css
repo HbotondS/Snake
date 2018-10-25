@@ -28,7 +28,7 @@
 }
 
 #inputsAndLabels {
-    -fx-alignment: center;;
+    -fx-alignment: center;
 }
 
 #labels {
@@ -41,4 +41,27 @@
 
 #buttons {
     -fx-alignment: center;
+}
+
+#displayScore {
+    -fx-padding: 10px 0px 0px 0px;
+    -fx-alignment: center;
+    -fx-spacing: 35px;
+}
+
+#scoreCheckBox .box {
+    -fx-border-color: white;
+    -fx-border-radius: 4px;
+    -fx-background-color: transparent;
+}
+
+#scoreCheckBox:selected .mark {
+    -fx-background-color: white;
+}
+
+#scoreCheckBox:selected .box {
+    -fx-border-radius: none;
+    -fx-border-color: none;
+    -fx-background-color: red;
+    -fx-background-radius: 4px;
 }

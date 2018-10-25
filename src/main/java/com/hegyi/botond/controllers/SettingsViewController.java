@@ -4,6 +4,7 @@ import com.hegyi.botond.MyLogger;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
@@ -20,6 +21,8 @@ public class SettingsViewController extends GoBack {
 	private TextField rightText;
 	@FXML
 	private TextField leftText;
+	@FXML
+	private CheckBox scoreCheckBox;
 
 	private Preferences prefs;
 
@@ -30,8 +33,6 @@ public class SettingsViewController extends GoBack {
 
 	public SettingsViewController() {
 		prefs = Preferences.userRoot().node(SettingsViewController.class.getName());
-
-		setDefCont();
 	}
 
 	// set the default controls
@@ -50,16 +51,29 @@ public class SettingsViewController extends GoBack {
 		leftText.setText(prefs.get(LEFT, ""));
 	}
 
+	private void setCheckBox() {
+		scoreCheckBox.setSelected(prefs.getBoolean("renderScore", true));
+	}
+
+	private void setDefCheckBox() {
+		prefs.putBoolean("renderScore", false);
+	}
+
 	// reset the controls to the default values
 	public void reset() {
 		setDefCont();
 		setContText();
+
+		setDefCheckBox();
+		setCheckBox();
 	}
 
 	@FXML
+	// this method is called every time when the user open the settings view
 	public void initialize() {
-		// this method is called every time when the user open the settings view
 		setContText();
+
+		setCheckBox();
 	}
 
 	public void changeText(KeyEvent keyEvent) {
@@ -84,6 +98,16 @@ public class SettingsViewController extends GoBack {
 					}
 				}
 			}
+		}
+	}
+
+	public void check() {
+		if (scoreCheckBox.isSelected()) {
+			MyLogger.INFO("is checked");
+			prefs.putBoolean("renderScore", true);
+		} else {
+			MyLogger.INFO("unchecked");
+			prefs.putBoolean("renderScore", false);
 		}
 	}
 }
