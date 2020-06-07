@@ -1,8 +1,12 @@
 # Snake
 
 [![](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
-[![](https://img.shields.io/badge/release-v1.0-blue.svg)](./target/Snake-1.0-SNAPSHOT.jar)
-![](https://img.shields.io/badge/maven-%20v3.5.4-blue.svg) <br/>
+![](https://img.shields.io/github/v/tag/HbotondS/Snake)
+![](https://img.shields.io/badge/maven-%20v3.5.4-blue.svg) 
+<br/>
+![](https://img.shields.io/github/last-commit/HbotondS/Snake) 
+![](https://img.shields.io/github/release-date/HbotondS/Snake)
+<br/>
 <img src="https://github.com/konpa/devicon/blob/master/icons/java/java-original-wordmark.svg" height=50/>
 
 
